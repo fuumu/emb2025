@@ -2,6 +2,8 @@
 EMBtraining1
 
 
+PRJ:AdressBook
+
 folder
 adr_naka
 adr_wada

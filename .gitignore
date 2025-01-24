@@ -1,0 +1,39 @@
+# Visual Studioの.gitignoreファイル
+# ビルド結果
+.obj
+.exe
+.pdb
+.ilk
+.lib
+.dll
+.idb
+.tlog
+.log
+.vspscc
+.vssscc
+
+# Visual Studioファイル
+.vscode
+.vs
+.VC.db
+.VC.opendb
+
+# パッケージ
+packages
+
+# その他の設定ファイル
+.user
+.suo
+.ipch
+.iobj
+.ipdb
+.aps
+.ncb
+.sdf
+.opendb
+.tlog
+.log
+
+# テンポラリファイル
+.tmp
+.temp

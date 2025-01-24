@@ -8,6 +8,16 @@
 //#define SCHAR	8
 
 
+
+
+
+
+
+
+
+
+
+
 #define	MAXTBL	64		// max table size
 #define MAXADRESS 256
 #define MAXNAME	64

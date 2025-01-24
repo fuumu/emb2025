@@ -2,6 +2,7 @@
 # ビルド結果
 *.obj
 *.exe
+*.exe.*
 *.pdb
 *.ilk
 *.lib
@@ -33,6 +34,7 @@ packages
 *.opendb
 *.tlog
 *.log
+*.vcxproj.FileListAbsolute.txt
 
 # テンポラリファイル
 *.tmp

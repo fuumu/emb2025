@@ -46,17 +46,17 @@ int main(void) {
 		{-1,},
 	};
 
-	menuType menus[] = {
-		{1,"データを表示",10,offsetof(itemType, pos)},
-		{2,"追加",10,offsetof(itemType, pos)},
-		{3,"削除",10,offsetof(itemType, pos)},
-		{4,"編集",10,offsetof(itemType, pos)},
-		{5,"検索",10,offsetof(itemType, pos)},
-		{6,"ソート",10,offsetof(itemType, pos)},
-		{7,"ファイル保存",10,offsetof(itemType, pos)},
-		{8,"ファイル読み込み",10,offsetof(itemType, pos)},
-		{9,"終了",10,offsetof(itemType, pos)},
-	};
+	// menuType menus[] = {
+	// 	{1,"データを表示",10,offsetof(itemType, pos)},
+	// 	{2,"追加",10,offsetof(itemType, pos)},
+	// 	{3,"削除",10,offsetof(itemType, pos)},
+	// 	{4,"編集",10,offsetof(itemType, pos)},
+	// 	{5,"検索",10,offsetof(itemType, pos)},
+	// 	{6,"ソート",10,offsetof(itemType, pos)},
+	// 	{7,"ファイル保存",10,offsetof(itemType, pos)},
+	// 	{8,"ファイル読み込み",10,offsetof(itemType, pos)},
+	// 	{9,"終了",10,offsetof(itemType, pos)},
+	// };
 
 	unsigned char  fmt[32];
 	int count = 2;

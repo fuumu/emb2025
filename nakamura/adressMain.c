@@ -6,29 +6,29 @@
 #include "adressDef.h"
 
 
-char Item1[50];  // ƒ\[ƒgŠÖŒW
-char Item2[50];  // ŒŸõğŒ
+char Item1[50];  // ã‚½ãƒ¼ãƒˆé–¢ä¿‚
+char Item2[50];  // æ¤œç´¢æ¡ä»¶
 char cmd[10];
 
 
-/*ƒAƒhƒŒƒX’ ƒAƒvƒŠmainŠÖ” */
-// ƒƒCƒ“ƒƒjƒ…[ŠÖ”
+/*ã‚¢ãƒ‰ãƒ¬ã‚¹å¸³ã‚¢ãƒ—ãƒªmainé–¢æ•° */
+// ãƒ¡ã‚¤ãƒ³ãƒ¡ãƒ‹ãƒ¥ãƒ¼é–¢æ•°
 void menu1(adressType *adressTblptr, int *dspTbl , itemType *items) {
-    printf("ZŠ˜^ƒAƒvƒŠƒP[ƒVƒ‡ƒ“\n"); //--TITLE--
-    printf("ƒf[ƒ^Œ”: (%d)\n", datacount);
-    printf("ƒ\[ƒgŠÖŒW: (%s)\n", Item1);
-    printf("ŒŸõğŒ: (%s)\n", Item2);
+    printf("ä½æ‰€éŒ²ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³\n"); //--TITLE--
+    printf("ãƒ‡ãƒ¼ã‚¿ä»¶æ•°: (%d)\n", datacount);
+    printf("ã‚½ãƒ¼ãƒˆé–¢ä¿‚: (%s)\n", Item1);
+    printf("æ¤œç´¢æ¡ä»¶: (%s)\n", Item2);
 
-    displayAll(adressTblptr, datacount, items); // ƒf[ƒ^ˆê——‚ğ•\¦‚·‚éŠÖ”
+    displayAll(adressTblptr, datacount, items); // ãƒ‡ãƒ¼ã‚¿ä¸€è¦§ã‚’è¡¨ç¤ºã™ã‚‹é–¢æ•°
 
-    // ƒƒjƒ…[•\¦‚ÆƒRƒ}ƒ“ƒh“ü—Í‘Ò‹@
+    // ãƒ¡ãƒ‹ãƒ¥ãƒ¼è¡¨ç¤ºã¨ã‚³ãƒãƒ³ãƒ‰å…¥åŠ›å¾…æ©Ÿ
     while (1) {
-        printf("ƒRƒ}ƒ“ƒh‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢i0:‘SŒƒŠƒXƒg•\¦,1: V‹Kì¬,2:íœ,3:•ÒW,4:ŒŸõ,5:ŒŸõƒŠƒZƒbƒg,6:ƒ\[ƒg,7:ƒtƒ@ƒCƒ‹‚ÉƒZ[ƒu, 8: ƒtƒ@ƒCƒ‹ƒ[ƒh, 9: I—¹j: ");
+        printf("ã‚³ãƒãƒ³ãƒ‰ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„ï¼ˆ0:å…¨ä»¶ãƒªã‚¹ãƒˆè¡¨ç¤º,1: æ–°è¦ä½œæˆ,2:å‰Šé™¤,3:ç·¨é›†,4:æ¤œç´¢,5:æ¤œç´¢ãƒªã‚»ãƒƒãƒˆ,6:ã‚½ãƒ¼ãƒˆ,7:ãƒ•ã‚¡ã‚¤ãƒ«ã«ã‚»ãƒ¼ãƒ–, 8: ãƒ•ã‚¡ã‚¤ãƒ«ãƒ­ãƒ¼ãƒ‰, 9: çµ‚äº†ï¼‰: ");
         scanf_s("%c", cmd,(unsigned)8); 
         int comm = 0;
         comm = atoi(cmd);
-        if (comm == 9) { // '9'‚ÅI—¹
-            printf("I—¹‚µ‚Ü‚·B\n");
+        if (comm == 9) { // '9'ã§çµ‚äº†
+            printf("çµ‚äº†ã—ã¾ã™ã€‚\n");
             break;
         }
 
@@ -40,7 +40,7 @@ int switchFn(adressType * adressTblptr,int comm, int* dspTbl,int datacount, item
 
     switch (comm) {
     case 0:
-        displayAll(adressTblptr, datacount,items);//‘SŒ•\¦
+        displayAll(adressTblptr, datacount,items);//å…¨ä»¶è¡¨ç¤º
         break;
     case 1:
         add(adressTblptr, datacount, items);
@@ -98,11 +98,11 @@ int main() {
     };
     int dspTbl[MAX_RECORDS];
     itemType items[] = {
-    { 1, "©", 10, TYPE_STRING, 0x0L },
-    { 2, "–¼", 10, TYPE_STRING, (unsigned long)(adressTbl[0].secound - adressTbl[0].first) },
-    { 3, "—X•Ö”Ô†", 10, TYPE_STRING, (unsigned long)(adressTbl[0].postNum - adressTbl[0].first) },
-    { 4, "ZŠ1", 15, TYPE_STRING, (unsigned long)(adressTbl[0].adress1 - adressTbl[0].first) },
-    { 5, "ZŠ2", 15, TYPE_STRING, (unsigned long)(adressTbl[0].adress2 - adressTbl[0].first) },
+    { 1, "å§“", 10, TYPE_STRING, 0x0L },
+    { 2, "å", 10, TYPE_STRING, (unsigned long)(adressTbl[0].secound - adressTbl[0].first) },
+    { 3, "éƒµä¾¿ç•ªå·", 10, TYPE_STRING, (unsigned long)(adressTbl[0].postNum - adressTbl[0].first) },
+    { 4, "ä½æ‰€1", 15, TYPE_STRING, (unsigned long)(adressTbl[0].adress1 - adressTbl[0].first) },
+    { 5, "ä½æ‰€2", 15, TYPE_STRING, (unsigned long)(adressTbl[0].adress2 - adressTbl[0].first) },
     { 6, "mail", 10, TYPE_STRING, (unsigned long)(adressTbl[0].email - adressTbl[0].first) },
     { 7, "TEL1", 10, TYPE_STRING, (unsigned long)(adressTbl[0].tel1 - adressTbl[0].first) },
     { 8, "TEL2", 10, TYPE_STRING, (unsigned long)(adressTbl[0].tel2 - adressTbl[0].first) },

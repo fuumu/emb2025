@@ -1,5 +1,5 @@
 #pragma once
-/*DEFINE‚ð•Û‘¶‚·‚éƒtƒ@ƒCƒ‹*/
+/*DEFINEã‚’ä¿å­˜ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«*/
 #ifndef ADDRESSDEF_H
 #define ADDRESSDEF_H
 

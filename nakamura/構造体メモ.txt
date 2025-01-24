@@ -1,9 +1,9 @@
     itemType items[] = {
-    { 1, "©", 10, TYPE_STRING, 0x0L },
-    { 2, "–¼", 10, TYPE_STRING, (unsigned long)(adressTbl[0].secound - adressTbl[0].first) },
-    { 3, "—X•Ö”Ô†", 10, TYPE_STRING, (unsigned long)(adressTbl[0].postNum - adressTbl[0].first) },
-    { 4, "ZŠ1", 15, TYPE_STRING, (unsigned long)(adressTbl[0].adress1 - adressTbl[0].first) },
-    { 5, "ZŠ2", 15, TYPE_STRING, (unsigned long)(adressTbl[0].adress2 - adressTbl[0].first) },
+    { 1, "å§“", 10, TYPE_STRING, 0x0L },
+    { 2, "å", 10, TYPE_STRING, (unsigned long)(adressTbl[0].secound - adressTbl[0].first) },
+    { 3, "éƒµä¾¿ç•ªå·", 10, TYPE_STRING, (unsigned long)(adressTbl[0].postNum - adressTbl[0].first) },
+    { 4, "ä½æ‰€1", 15, TYPE_STRING, (unsigned long)(adressTbl[0].adress1 - adressTbl[0].first) },
+    { 5, "ä½æ‰€2", 15, TYPE_STRING, (unsigned long)(adressTbl[0].adress2 - adressTbl[0].first) },
     { 6, "mail", 10, TYPE_STRING, (unsigned long)(adressTbl[0].email - adressTbl[0].first) },
     { 7, "TEL1", 10, TYPE_STRING, (unsigned long)(adressTbl[0].tel1 - adressTbl[0].first) },
     { 8, "TEL2", 10, TYPE_STRING, (unsigned long)(adressTbl[0].tel2 - adressTbl[0].first) },
@@ -12,17 +12,17 @@
     {-1,},
     };
 
-    typedef struct adress_t {@@iƒIƒŠƒWƒiƒ‹j
-    unsigned char first[30];    // ©
-    unsigned char secound[30]; // –¼
-    unsigned char postNum[8]; // —X•Ö”Ô†1
-    unsigned char adress1[255]; // ZŠ1
-    unsigned char adress2[255]; // ZŠ2
-    unsigned char email[255];  // ƒ[ƒ‹ƒAƒhƒŒƒX
-    unsigned char tel1[32];    // “d˜b”Ô†i©‘îj
-    unsigned char tel2[32];    // “d˜b”Ô†i‰ïĞj
-    unsigned char age[8];         // ”N—î
-    unsigned char gender[8];  // «•Ê ("Female"/"Male")
+    typedef struct adress_t {ã€€ã€€ï¼ˆã‚ªãƒªã‚¸ãƒŠãƒ«ï¼‰
+    unsigned char first[30];    // å§“
+    unsigned char secound[30]; // å
+    unsigned char postNum[8]; // éƒµä¾¿ç•ªå·1
+    unsigned char adress1[255]; // ä½æ‰€1
+    unsigned char adress2[255]; // ä½æ‰€2
+    unsigned char email[255];  // ãƒ¡ãƒ¼ãƒ«ã‚¢ãƒ‰ãƒ¬ã‚¹
+    unsigned char tel1[32];    // é›»è©±ç•ªå·ï¼ˆè‡ªå®…ï¼‰
+    unsigned char tel2[32];    // é›»è©±ç•ªå·ï¼ˆä¼šç¤¾ï¼‰
+    unsigned char age[8];         // å¹´é½¢
+    unsigned char gender[8];  // æ€§åˆ¥ ("Female"/"Male")
 } adressType;
 
 typedef enum item_type {
@@ -32,10 +32,10 @@ typedef enum item_type {
 
 typedef struct item_t {
     int             pos;                        // Number
-    unsigned char   dispName[64];               // •\¦‚·‚é•¶š—ñ
-    int             dispWith;                   // •\¦‚·‚é•
-    item_type       itype;                      // •Ï”‚ÌŒ^‚Ìí—Ş
-    unsigned long  offset;                   // ƒIƒtƒZƒbƒg
+    unsigned char   dispName[64];               // è¡¨ç¤ºã™ã‚‹æ–‡å­—åˆ—
+    int             dispWith;                   // è¡¨ç¤ºã™ã‚‹å¹…
+    item_type       itype;                      // å¤‰æ•°ã®å‹ã®ç¨®é¡
+    unsigned long  offset;                   // ã‚ªãƒ•ã‚»ãƒƒãƒˆ
 } itemType;
 
 	adressType adressTbl[MAXTBL] = {

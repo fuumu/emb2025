@@ -1,16 +1,16 @@
 #pragma once
 #include "adressType.h"
 #include "adressDef.h"
-/*ƒvƒƒgƒ^ƒCƒvéŒ¾—pƒwƒbƒ_[ƒtƒ@ƒCƒ‹*/
+/*ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—å®£è¨€ç”¨ãƒ˜ãƒƒãƒ€ãƒ¼ãƒ•ã‚¡ã‚¤ãƒ«*/
 #ifndef ADDRESSPROTO_H
 #define ADDRESSPROTO_H
 
 typedef struct item_t {
     int             pos;                        // Number
-    unsigned char   dispName[64];               // •\¦‚·‚é•¶š—ñ
-    int             dispWith;                   // •\¦‚·‚é•
-    item_type       itype;                      // •Ï”‚ÌŒ^‚Ìí—Ş
-    unsigned long  offset;                   // ƒIƒtƒZƒbƒg
+    unsigned char   dispName[64];               // è¡¨ç¤ºã™ã‚‹æ–‡å­—åˆ—
+    int             dispWith;                   // è¡¨ç¤ºã™ã‚‹å¹…
+    item_type       itype;                      // å¤‰æ•°ã®å‹ã®ç¨®é¡
+    unsigned long  offset;                   // ã‚ªãƒ•ã‚»ãƒƒãƒˆ
 } itemType;
 void menu1(adressType* adressTblptr, int* dspTbl, itemType* items);
 int loadAdressData(adressType* adrTblPtr);

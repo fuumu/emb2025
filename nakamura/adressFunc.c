@@ -1,41 +1,41 @@
-/*ŒÂ•Ê‹@”\ƒ\[ƒXƒtƒ@ƒCƒ‹*/
+/*å€‹åˆ¥æ©Ÿèƒ½ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«*/
 #include "adressType.h"
 #include "adressDef.h"
 #include "adressProt.h"
-/*ƒf[ƒ^‚ğ‘SŒ•\¦*/
+/*ãƒ‡ãƒ¼ã‚¿ã‚’å…¨ä»¶è¡¨ç¤º*/
 void displayAll(adressType* adressTbl, int count, itemType * items) {
 
-    for (int wb = 0; wb < count;wb++) {//count ¨ 
+    for (int wb = 0; wb < count;wb++) {//count â†’ 
         print_a_record(&adressTbl[wb], items);
     }
 }
-/*’Ç‰Á(adressTbl[n + 1]‚É‘‚«‚İ‚ğ’Ç‰Á)*/
+/*è¿½åŠ (adressTbl[n + 1]ã«æ›¸ãè¾¼ã¿ã‚’è¿½åŠ )*/
 void add(adressType* adressTbl, int count, itemType* itemDat) {
-    printf("•K—v‚Èî•ñ‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B\n");
+    printf("å¿…è¦ãªæƒ…å ±ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„ã€‚\n");
     for (int wi = 0;wi < 16;wi++) {
         if (itemDat[wi].pos < 0) {
             break;
         }
         else {
             if (itemDat[wi].itype == TYPE_STRING) {
-                printf("%s‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢: ", itemDat[wi].dispName);
+                printf("%sã‚’å…¥åŠ›ã—ã¦ãã ã•ã„: ", itemDat[wi].dispName);
                 scanf_s("%s", (char*)((unsigned char*)&adressTbl[count] + itemDat[wi].offset),10);
             }
             else if (itemDat[wi].itype == TYPE_INT) {
-                printf("%s‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢: ", itemDat[wi].dispName);
+                printf("%sã‚’å…¥åŠ›ã—ã¦ãã ã•ã„: ", itemDat[wi].dispName);
                 scanf_s("%d", (int*)((unsigned char*)&adressTbl[count] + itemDat[wi].offset));
             }
         }
     }
 }
 
-/*íœ*/
+/*å‰Šé™¤*/
 void del(adressType* adressTbl, int count){
-    printf("íœ‘ÎÛ‚ÌNoF");
+    printf("å‰Šé™¤å¯¾è±¡ã®Noï¼š");
     char Num[4];
     scanf_s("%s",Num, 4);
 
-    printf("%s‚ğíœ‚µ‚Ü‚·B",Num);
+    printf("%sã‚’å‰Šé™¤ã—ã¾ã™ã€‚",Num);
     int no;
     no = atoi(Num);
     for (int i = no; i < MAX_RECORDS; i++) {
@@ -43,55 +43,55 @@ void del(adressType* adressTbl, int count){
     }
 
 }
-/*•ÒW*/
+/*ç·¨é›†*/
 void edit(adressType* adressTbl, int count, itemType* items) {
     int no, item;
     char buf[256];
 
-    printf("•ÒW‘ÎÛ‚ÌNoF");//•ÒW‚·‚éZŠ˜^‚Ì‘I‘ğ
-    scanf("%d", &no);//no‚ÉintŒ^‚Åæ“¾
-    if (no < 0 || no >= count) {//“o˜^Ï‚İZŠ˜^‚ÌÅ‘å”‚Ì”ÍˆÍŠO‚Ìê‡
-        printf("–³Œø‚È”Ô†‚Å‚·B\n");
+    printf("ç·¨é›†å¯¾è±¡ã®Noï¼š");//ç·¨é›†ã™ã‚‹ä½æ‰€éŒ²ã®é¸æŠ
+    scanf("%d", &no);//noã«intå‹ã§å–å¾—
+    if (no < 0 || no >= count) {//ç™»éŒ²æ¸ˆã¿ä½æ‰€éŒ²ã®æœ€å¤§æ•°ã®ç¯„å›²å¤–ã®å ´åˆ
+        printf("ç„¡åŠ¹ãªç•ªå·ã§ã™ã€‚\n");
         return;
-    }    printf("•ÒW€–Ú‚ğ‘I‚ñ‚Å‚­‚¾‚³‚¢:\n");
+    }    printf("ç·¨é›†é …ç›®ã‚’é¸ã‚“ã§ãã ã•ã„:\n");
     for (int i = 0; items[i].pos != -1; i++) {
-        printf("%d: %s\n", items[i].pos, items[i].dispName);//items”z—ñ‚Ìƒƒ“ƒopos(”Ô†)‚ÆAdispName(“ú–{Œê•\‹L)‚Å‚Ç‚Ì€–Ú‚ª‚ ‚é‚©ƒ‹[ƒv‚Å‡‚É•\¦
+        printf("%d: %s\n", items[i].pos, items[i].dispName);//itemsé…åˆ—ã®ãƒ¡ãƒ³ãƒpos(ç•ªå·)ã¨ã€dispName(æ—¥æœ¬èªè¡¨è¨˜)ã§ã©ã®é …ç›®ãŒã‚ã‚‹ã‹ãƒ«ãƒ¼ãƒ—ã§é †ã«è¡¨ç¤º
     }
-    scanf("%d", &item); //•ÒW€–Ú‚ğ•W€“ü—Í‚Åæ“¾
+    scanf("%d", &item); //ç·¨é›†é …ç›®ã‚’æ¨™æº–å…¥åŠ›ã§å–å¾—
     int found = 0;
-    for (int i = 0; items[i].pos != -1; i++) {//items‚ÌÅŒã‚É-1‚ğ”z’u‚µA‚»‚±‚É“’B‚·‚é‚Ü‚Åƒ‹[ƒv‚ğ‰ñ‚·
-        if (items[i].pos == item) {//æ“¾‚µ‚½€–Ú‚Æˆê’v‚µ‚½ê‡ˆ—‚É“ü‚éB
-            // “ü—Íˆ—
-            printf("%s‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢: ", items[i].dispName);//‚»‚ê‚¼‚ê‚Ì€–Ú–¼‚ğ•\¦
-            scanf("%s", buf);//•W€“ü—Í‚Å•ÏX“à—e‚ğæ“¾
+    for (int i = 0; items[i].pos != -1; i++) {//itemsã®æœ€å¾Œã«-1ã‚’é…ç½®ã—ã€ãã“ã«åˆ°é”ã™ã‚‹ã¾ã§ãƒ«ãƒ¼ãƒ—ã‚’å›ã™
+        if (items[i].pos == item) {//å–å¾—ã—ãŸé …ç›®ã¨ä¸€è‡´ã—ãŸå ´åˆå‡¦ç†ã«å…¥ã‚‹ã€‚
+            // å…¥åŠ›å‡¦ç†
+            printf("%sã‚’å…¥åŠ›ã—ã¦ãã ã•ã„: ", items[i].dispName);//ãã‚Œãã‚Œã®é …ç›®åã‚’è¡¨ç¤º
+            scanf("%s", buf);//æ¨™æº–å…¥åŠ›ã§å¤‰æ›´å†…å®¹ã‚’å–å¾—
 
-            // ‘I‘ğ‚³‚ê‚½ƒtƒB[ƒ‹ƒh‚É’l‚ğİ’è
-            unsigned char* targetField = (unsigned char*)adressTbl + items[i].offset;//targetField(ƒ|ƒCƒ“ƒ^)‚ÉƒIƒtƒZƒbƒg‚ğg‚¢‘ÎÛ‚ÌƒtƒB[ƒ‹ƒh‚Ìæ“ªƒAƒhƒŒƒX‚ğ‘ã“ü
-            strncpy((char*)targetField, buf, items[i].dispWith - 1);//strncpyŠÖ”‚Åæ“¾‚µ‚½“ü—Í‚ğA‘æ“ñˆø”‚Ìbuf‚©‚çA‘æˆêˆø”‚ÌtargetField‚ÉƒRƒs[B‘æOˆø”‚ÅƒI[ƒo[ƒtƒ[–h~
+            // é¸æŠã•ã‚ŒãŸãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«å€¤ã‚’è¨­å®š
+            unsigned char* targetField = (unsigned char*)adressTbl + items[i].offset;//targetField(ãƒã‚¤ãƒ³ã‚¿)ã«ã‚ªãƒ•ã‚»ãƒƒãƒˆã‚’ä½¿ã„å¯¾è±¡ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®å…ˆé ­ã‚¢ãƒ‰ãƒ¬ã‚¹ã‚’ä»£å…¥
+            strncpy((char*)targetField, buf, items[i].dispWith - 1);//strncpyé–¢æ•°ã§å–å¾—ã—ãŸå…¥åŠ›ã‚’ã€ç¬¬äºŒå¼•æ•°ã®bufã‹ã‚‰ã€ç¬¬ä¸€å¼•æ•°ã®targetFieldã«ã‚³ãƒ”ãƒ¼ã€‚ç¬¬ä¸‰å¼•æ•°ã§ã‚ªãƒ¼ãƒãƒ¼ãƒ•ãƒ­ãƒ¼é˜²æ­¢
             targetField[items[i].dispWith - 1] = '\0';
 
             found = 1;
             break;
         }
         if (!found) {
-            printf("–³Œø‚È€–Ú‚Å‚·B\n");
+            printf("ç„¡åŠ¹ãªé …ç›®ã§ã™ã€‚\n");
         }
     }
 }
 
 
 void search(adressType* adressTbl, int count, itemType* itemDat) {
-    printf("ŒŸõ‚·‚é %s ‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢: ", itemDat[2].dispName); // "—X•Ö”Ô†" ‚ğ•\¦
+    printf("æ¤œç´¢ã™ã‚‹ %s ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„: ", itemDat[2].dispName); // "éƒµä¾¿ç•ªå·" ã‚’è¡¨ç¤º
     unsigned char searchKey[32];
     scanf_s("%s", searchKey, sizeof(searchKey));
 
     resetFlags(dspTbl, MAX_RECORDS);
 
     for (int i = 0; i < MAX_RECORDS; i++) {
-        unsigned char* fieldPtr = (unsigned char*)&adressTbl[i] + itemDat[2].offset; // —X•Ö”Ô†‚ÌƒtƒB[ƒ‹ƒh
+        unsigned char* fieldPtr = (unsigned char*)&adressTbl[i] + itemDat[2].offset; // éƒµä¾¿ç•ªå·ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰
         if (strcmp((char*)searchKey, (char*)fieldPtr) == 0) {
             dspTbl[i] = 1;
-            printf("ˆê’v‚·‚éƒf[ƒ^‚ªŒ©‚Â‚©‚è‚Ü‚µ‚½:\n");
+            printf("ä¸€è‡´ã™ã‚‹ãƒ‡ãƒ¼ã‚¿ãŒè¦‹ã¤ã‹ã‚Šã¾ã—ãŸ:\n");
 
             for (int wi = 0; wi < 10; wi++) {
                 if (itemDat[wi].pos < 0) {
@@ -113,13 +113,13 @@ void search(adressType* adressTbl, int count, itemType* itemDat) {
         }
     }
 }
-/*ŒŸõğŒ‚ğƒNƒŠƒA*/
+/*æ¤œç´¢æ¡ä»¶ã‚’ã‚¯ãƒªã‚¢*/
 void resetFlags(int* dspTbl, int size) {
     for (int i = 0; i < size; i++) {
         dspTbl[i] = 0;
     }
 }
-/*ƒ\[ƒg•\¦*/
+/*ã‚½ãƒ¼ãƒˆè¡¨ç¤º*/
 void sort(adressType* adrTblPtr) {
     adressType stashaddress;
     for (int i = 0; i < MAX_RECORDS;i++) {
@@ -137,7 +137,7 @@ int saveAdressData(adressType* adressTbl, int count)
     FILE* file;
     errno_t err;
 
-    // ƒtƒ@ƒCƒ‹‚ğƒoƒCƒiƒŠ‘‚«‚İƒ‚[ƒh‚ÅŠJ‚­
+    // ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ãƒã‚¤ãƒŠãƒªæ›¸ãè¾¼ã¿ãƒ¢ãƒ¼ãƒ‰ã§é–‹ã
     err = fopen_s(&file, "adressDat.bin", "wb");
     if (err != 0 || file == NULL)
     {
@@ -145,7 +145,7 @@ int saveAdressData(adressType* adressTbl, int count)
         return -1;
     }
 
-    // ƒf[ƒ^‚ğ‘‚«‚Ş
+    // ãƒ‡ãƒ¼ã‚¿ã‚’æ›¸ãè¾¼ã‚€
     if (fwrite(adressTbl, sizeof(adressType), count, file) != count)
     {
         perror("Error writing file");
@@ -163,7 +163,7 @@ int loadAdressData(adressType* adressTbl)
     errno_t err;
     int count = 0;
 
-    // ƒtƒ@ƒCƒ‹‚ğƒoƒCƒiƒŠ“Ç‚İæ‚èƒ‚[ƒh‚ÅŠJ‚­
+    // ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ãƒã‚¤ãƒŠãƒªèª­ã¿å–ã‚Šãƒ¢ãƒ¼ãƒ‰ã§é–‹ã
     err = fopen_s(&file, "adressDat.bin", "rb");
     if (err != 0 || file == NULL)
     {
@@ -171,7 +171,7 @@ int loadAdressData(adressType* adressTbl)
         return -1;
     }
 
-    // ƒf[ƒ^‚ğ“Ç‚İ‚Ş
+    // ãƒ‡ãƒ¼ã‚¿ã‚’èª­ã¿è¾¼ã‚€
     while (fread(&adressTbl[count], sizeof(adressType), 1, file) == 1)
     {
         count++;

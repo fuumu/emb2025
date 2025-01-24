@@ -1,5 +1,5 @@
 #pragma once
-/*\‘¢‘ÌAƒ†[ƒU[’è‹`—pƒwƒbƒ_[ƒtƒ@ƒCƒ‹*/
+/*æ§‹é€ ä½“ã€ãƒ¦ãƒ¼ã‚¶ãƒ¼å®šç¾©ç”¨ãƒ˜ãƒƒãƒ€ãƒ¼ãƒ•ã‚¡ã‚¤ãƒ«*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -9,16 +9,16 @@
 #define ADDRESSTYPE_H
 
 typedef struct adress_t {
-    unsigned char first[30];    // ©
-    unsigned char secound[30]; // –¼
-    unsigned char postNum[8]; // —X•Ö”Ô†1
-    unsigned char adress1[255]; // ZŠ1
-    unsigned char adress2[255]; // ZŠ2
-    unsigned char email[255];  // ƒ[ƒ‹ƒAƒhƒŒƒX
-    unsigned char tel1[32];    // “d˜b”Ô†i©‘îj
-    unsigned char tel2[32];    // “d˜b”Ô†i‰ïĞj
-    unsigned char age[8];         // ”N—î
-    unsigned char gender[8];  // «•Ê ("Female"/"Male")
+    unsigned char first[30];    // å§“
+    unsigned char secound[30]; // å
+    unsigned char postNum[8]; // éƒµä¾¿ç•ªå·1
+    unsigned char adress1[255]; // ä½æ‰€1
+    unsigned char adress2[255]; // ä½æ‰€2
+    unsigned char email[255];  // ãƒ¡ãƒ¼ãƒ«ã‚¢ãƒ‰ãƒ¬ã‚¹
+    unsigned char tel1[32];    // é›»è©±ç•ªå·ï¼ˆè‡ªå®…ï¼‰
+    unsigned char tel2[32];    // é›»è©±ç•ªå·ï¼ˆä¼šç¤¾ï¼‰
+    unsigned char age[8];         // å¹´é½¢
+    unsigned char gender[8];  // æ€§åˆ¥ ("Female"/"Male")
 } adressType;
 
 #endif

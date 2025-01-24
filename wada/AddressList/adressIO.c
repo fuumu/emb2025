@@ -5,9 +5,9 @@
 #include "adressProto.h"
 #include "adressType.h"
 
-int SaveFunction(adressType* adressTbl, unsigned int count)
+int SaveFunction(adressType *adressTbl, unsigned int count)
 {
-    FILE* file;
+    FILE *file;
     errno_t err;
 
     // ファイルをバイナリ書き込みモードで開く
@@ -30,9 +30,9 @@ int SaveFunction(adressType* adressTbl, unsigned int count)
     return 0;
 }
 
-int LoadFunction(adressType* adressTbl)
+int LoadFunction(adressType *adressTbl)
 {
-    FILE* file;
+    FILE *file;
     errno_t err;
     int count = 0;
 

@@ -24,10 +24,10 @@ typedef struct item_t {
     unsigned long   offset;                   // オフセット
 } itemType;
 
-// typedef struct menu_t {
-//     int             pos;
-//     unsigned char   menuName[64];
-//     int             dispWith;
-//     unsigned long   offset;
-// }menuType;
+typedef struct menu_t {
+    int             pos;
+    unsigned char   menuName[64];
+    int             dispWith;
+    unsigned long   offset;
+}menuType;
 #endif // !ADRESS_TYPE

@@ -56,6 +56,7 @@ int main(void) {
 		{-1,},
 	};
 
+<<<<<<< HEAD
 	// menuType menus[] = {
 	// 	{1,"繝�繝ｼ繧ｿ繧定｡ｨ遉ｺ",10,offsetof(itemType, pos)},
 	// 	{2,"霑ｽ蜉",10,offsetof(itemType, pos)},
@@ -67,6 +68,19 @@ int main(void) {
 	// 	{8,"繝輔ぃ繧､繝ｫ隱ｭ縺ｿ霎ｼ縺ｿ",10,offsetof(itemType, pos)},
 	// 	{9,"邨ゆｺ�",10,offsetof(itemType, pos)},
 	// };
+=======
+	menuType menus[] = {
+		{1,"データを表示",10,offsetof(itemType, pos)},
+		{2,"追加",10,offsetof(itemType, pos)},
+		{3,"削除",10,offsetof(itemType, pos)},
+		{4,"編集",10,offsetof(itemType, pos)},
+		{5,"検索",10,offsetof(itemType, pos)},
+		{6,"ソート",10,offsetof(itemType, pos)},
+		{7,"ファイル保存",10,offsetof(itemType, pos)},
+		{8,"ファイル読み込み",10,offsetof(itemType, pos)},
+		{9,"終了",10,offsetof(itemType, pos)},
+	};
+>>>>>>> parent of 894fcba (.filters.user諡｡蠑ｵ蟄舌ヵ繧｡繧､繝ｫ縺ｮ蜑企勁)
 
 	unsigned char  fmt[32];
 	int count = 3;

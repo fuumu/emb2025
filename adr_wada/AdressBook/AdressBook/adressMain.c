@@ -1,4 +1,4 @@
-ï»¿#include <stdio.h>
+#include <stdio.h>
 #include <stddef.h>
 
 #include "adressType.h"
@@ -44,11 +44,11 @@ int main(void)
 	};
 #endif
 	itemType const items[] = {
-		{1, "å§“", 10, TYPE_STRING, offsetof(adressType, first)},
-		{2, "å", 10, TYPE_STRING, offsetof(adressType, second)},
-		{3, "éƒµä¾¿ç•ªå·", 10, TYPE_STRING, offsetof(adressType, postNum)},
-		{4, "ä½æ‰€1", 15, TYPE_STRING, offsetof(adressType, address1)},
-		{5, "ä½æ‰€2", 15, TYPE_STRING, offsetof(adressType, address2)},
+		{1, "©", 10, TYPE_STRING, offsetof(adressType, first)},
+		{2, "–¼", 10, TYPE_STRING, offsetof(adressType, second)},
+		{3, "—X•Ö”Ô†", 10, TYPE_STRING, offsetof(adressType, postNum)},
+		{4, "ZŠ1", 15, TYPE_STRING, offsetof(adressType, address1)},
+		{5, "ZŠ2", 15, TYPE_STRING, offsetof(adressType, address2)},
 		{6, "mail", 10, TYPE_STRING, offsetof(adressType, email)},
 		{7, "TEL1", 10, TYPE_STRING, offsetof(adressType, tel1)},
 		{8, "TEL2", 10, TYPE_STRING, offsetof(adressType, tel2)},
@@ -60,15 +60,15 @@ int main(void)
 	};
 
 	// menuType menus[] = {
-	// 	{1,"ãƒ‡ãƒ¼ã‚¿ã‚’è¡¨ç¤º",10,offsetof(itemType, pos)},
-	// 	{2,"è¿½åŠ ",10,offsetof(itemType, pos)},
-	// 	{3,"å‰Šé™¤",10,offsetof(itemType, pos)},
-	// 	{4,"ç·¨é›†",10,offsetof(itemType, pos)},
-	// 	{5,"æ¤œç´¢",10,offsetof(itemType, pos)},
-	// 	{6,"ã‚½ãƒ¼ãƒˆ",10,offsetof(itemType, pos)},
-	// 	{7,"ãƒ•ã‚¡ã‚¤ãƒ«ä¿å­˜",10,offsetof(itemType, pos)},
-	// 	{8,"ãƒ•ã‚¡ã‚¤ãƒ«èª­ã¿è¾¼ã¿",10,offsetof(itemType, pos)},
-	// 	{9,"çµ‚äº†",10,offsetof(itemType, pos)},
+	// 	{1,"ƒf[ƒ^‚ğ•\¦",10,offsetof(itemType, pos)},
+	// 	{2,"’Ç‰Á",10,offsetof(itemType, pos)},
+	// 	{3,"íœ",10,offsetof(itemType, pos)},
+	// 	{4,"•ÒW",10,offsetof(itemType, pos)},
+	// 	{5,"ŒŸõ",10,offsetof(itemType, pos)},
+	// 	{6,"ƒ\[ƒg",10,offsetof(itemType, pos)},
+	// 	{7,"ƒtƒ@ƒCƒ‹•Û‘¶",10,offsetof(itemType, pos)},
+	// 	{8,"ƒtƒ@ƒCƒ‹“Ç‚İ‚İ",10,offsetof(itemType, pos)},
+	// 	{9,"I—¹",10,offsetof(itemType, pos)},
 	// };
 
 	unsigned char fmt[32];
@@ -79,10 +79,10 @@ int main(void)
 		unsigned int cmd;
 		if (count == 0)
 		{
-			printf("ä½æ‰€éŒ²ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³\n");
-			printf("ãƒ‡ãƒ¼ã‚¿ä»¶æ•°(%d)", count);
-			printf("ã‚³ãƒãƒ³ãƒ‰ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„\n");
-			printf("1ï¼šè¿½åŠ  2:ãƒ•ã‚¡ã‚¤ãƒ«èª­è¾¼ã€€9ï¼šçµ‚äº†\n");
+			printf("ZŠ˜^ƒAƒvƒŠƒP[ƒVƒ‡ƒ“\n");
+			printf("ƒf[ƒ^Œ”(%d)", count);
+			printf("ƒRƒ}ƒ“ƒh‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢\n");
+			printf("1F’Ç‰Á 2:ƒtƒ@ƒCƒ‹“Ç@9FI—¹\n");
 
 			scanf("%d", &cmd);
 
@@ -103,16 +103,16 @@ int main(void)
 		}
 		else
 		{
-			printf("ä½æ‰€éŒ²ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³\n");
-			printf("ãƒ‡ãƒ¼ã‚¿ä»¶æ•°(%d)", count);
-			printf("ã‚³ãƒãƒ³ãƒ‰ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„\n");
-			printf("0:ãƒ‡ãƒ¼ã‚¿ã‚’è¡¨ç¤º 1ï¼šè¿½åŠ  2:å‰Šé™¤ 3:ç·¨é›† 4:æ¤œç´¢ 5:ã‚½ãƒ¼ãƒˆ 6:ãƒ•ã‚¡ã‚¤ãƒ«ä¿å­˜ 7: ãƒ•ã‚¡ã‚¤ãƒ«èª­ã¿è¾¼ã¿ã€€9ï¼šçµ‚äº†\n");
+			printf("ZŠ˜^ƒAƒvƒŠƒP[ƒVƒ‡ƒ“\n");
+			printf("ƒf[ƒ^Œ”(%d)", count);
+			printf("ƒRƒ}ƒ“ƒh‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢\n");
+			printf("0:ƒf[ƒ^‚ğ•\¦ 1F’Ç‰Á 2:íœ 3:•ÒW 4:ŒŸõ 5:ƒ\[ƒg 6:ƒtƒ@ƒCƒ‹•Û‘¶ 7: ƒtƒ@ƒCƒ‹“Ç‚İ‚İ@9FI—¹\n");
 
 			scanf("%d", &cmd);
 
 			switch (cmd)
 			{
-			case 0: // ãƒ‡ãƒ¼ã‚¿ã‚’å…¨ä»¶è¡¨ç¤º
+			case 0: // ƒf[ƒ^‚ğ‘SŒ•\¦
 				for (int i = 0; i < 16; i++)
 				{
 					if (items[i].pos < 0)
@@ -128,28 +128,28 @@ int main(void)
 					ViewFunction(&adressTbl[j], items);
 				}
 				break;
-			case 1: // ãƒ‡ãƒ¼ã‚¿ã‚’è¿½åŠ 
+			case 1: // ƒf[ƒ^‚ğ’Ç‰Á
 				count = AddFunction(adressTbl, items, count);
 				break;
-			case 2: // ãƒ‡ãƒ¼ã‚¿ã‚’å‰Šé™¤
+			case 2: // ƒf[ƒ^‚ğíœ
 				count = DeleteFunction(adressTbl, items, count);
 				break;
-			case 3: // ãƒ‡ãƒ¼ã‚¿ã‚’ç·¨é›†
+			case 3: // ƒf[ƒ^‚ğ•ÒW
 				EditFunction(adressTbl, items, count);
 				break;
-				// case 4: //ãƒ‡ãƒ¼ã‚¿ã‚’æ¤œç´¢
+				// case 4: //ƒf[ƒ^‚ğŒŸõ
 				//	SearchFunction(adressTbl, count);
 				//	break;
-				// case 5: //ãƒ‡ãƒ¼ã‚¿ã‚’ã‚½ãƒ¼ãƒˆ
+				// case 5: //ƒf[ƒ^‚ğƒ\[ƒg
 				//	SortFunction(adressTbl, count);
 				//	break;
-				// case 6: //ãƒ‡ãƒ¼ã‚¿ã‚’ã‚»ãƒ¼ãƒ–
+				// case 6: //ƒf[ƒ^‚ğƒZ[ƒu
 				//	count = SaveFunction(adressTbl, count);
 				//	break;
-				// case 7: //ãƒ‡ãƒ¼ã‚¿ã‚’ãƒ­ãƒ¼ãƒ‰
+				// case 7: //ƒf[ƒ^‚ğƒ[ƒh
 				//	count = LoadFunction(adressTbl);
 				//	break;
-			case 9: // ã‚·ã‚¹ãƒ†ãƒ ã‚’çµ‚äº†
+			case 9: // ƒVƒXƒeƒ€‚ğI—¹
 				roopflag = 0;
 				break;
 			default:

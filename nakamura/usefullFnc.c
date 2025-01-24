@@ -1,5 +1,5 @@
 #include "adressType.h"
-#include "adressProt.h"
+#include "adressProto.h"
 void print_a_record(adressType* adressDat, itemType itemDat[]) {
 
 	unsigned char    fmt[32];

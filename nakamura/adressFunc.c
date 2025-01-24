@@ -1,7 +1,7 @@
 /*個別機能ソースファイル*/
 #include "adressType.h"
 #include "adressDef.h"
-#include "adressProt.h"
+#include "adressProto.h"
 /*データを全件表示*/
 void displayAll(adressType* adressTbl, int count, itemType * items) {
 

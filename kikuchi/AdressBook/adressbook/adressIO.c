@@ -9,7 +9,7 @@ int loadAdressData(adressType* adrTblPtr)
     FILE* file;
     int count = 0;
 
-    file = fopen("adressDat.bin", "rb");
+    file = fopen_s("adressDat.bin", "rb");
     if (file == NULL)
     {
         perror("Error opening file");
@@ -29,7 +29,7 @@ int saveAdressData(adressType* adrTblPtr, int dataCnt)
 {
     FILE* file;
 
-    file = fopen("adressDat.bin", "wb");
+    file = fopen_s("adressDat.bin", "wb");
     if (file == NULL)
     {
         perror("Error opening file");

@@ -24,7 +24,6 @@ typedef struct item_t {
     int             dispWith;                   // 表示する幅
     item_type       itype;                      // 変数の型の種類
     unsigned long  offset;                   // オフセット
-    unsigned char   fmt[64];               // 文字列
 } itemType;
 
 

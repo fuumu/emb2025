@@ -45,17 +45,17 @@ void main() {
 #endif
 
 
-	itemType const items[] = {
-			{ 1,"姓",10,TYPE_STRING,0x0L,"%-10s"},
-			{ 2,"名",10,TYPE_STRING,(unsigned long)(&adressTbl[0].secound[0] - &adressTbl[0].first[0]),"%-10s"},
-			{ 3,"郵便番号",10,TYPE_STRING,(unsigned long)(adressTbl[0].postNum - adressTbl[0].first),"%-10s"},
-			{ 4,"住所1",20,TYPE_STRING,(unsigned long)(adressTbl[0].adress1 - adressTbl[0].first),"%-10s"},
-			{ 5,"住所2",20,TYPE_STRING,(unsigned long)(adressTbl[0].adress2 - adressTbl[0].first),"%-10s"},
-			{ 6,"mail",10,TYPE_STRING,(unsigned long)(adressTbl[0].email - adressTbl[0].first),"%-10s"},
-			{ 7,"TEL1",10,TYPE_STRING,(unsigned long)(adressTbl[0].tel1 - adressTbl[0].first),"%-10s"},
-			{ 8,"TEL2",10,TYPE_STRING,(unsigned long)(adressTbl[0].tel2 - adressTbl[0].first),"%-10s"},
-			{ 9,"AGE",10,TYPE_INT,(unsigned long)(&adressTbl[0].age - &adressTbl[0]),"%-10s"},
-			{ 10,"GENDER",10,TYPE_STRING,(unsigned long)(adressTbl[0].gender - adressTbl[0].first),"%-10s"},
+	itemType  items[] = {
+			{ 1,"姓",10,TYPE_STRING,0x0L},
+			{ 2,"名",10,TYPE_STRING,(unsigned long)(&adressTbl[0].secound[0] - &adressTbl[0].first[0])},
+			{ 3,"郵便番号",10,TYPE_STRING,(unsigned long)(adressTbl[0].postNum - adressTbl[0].first),},
+			{ 4,"住所1",20,TYPE_STRING,(unsigned long)(adressTbl[0].adress1 - adressTbl[0].first)},
+			{ 5,"住所2",20,TYPE_STRING,(unsigned long)(adressTbl[0].adress2 - adressTbl[0].first)},
+			{ 6,"mail",10,TYPE_STRING,(unsigned long)(adressTbl[0].email - adressTbl[0].first)},
+			{ 7,"TEL1",10,TYPE_STRING,(unsigned long)(adressTbl[0].tel1 - adressTbl[0].first)},
+			{ 8,"TEL2",10,TYPE_STRING,(unsigned long)(adressTbl[0].tel2 - adressTbl[0].first)},
+			{ 9,"AGE",10,TYPE_INT,(unsigned long)(&adressTbl[0].age - &adressTbl[0])},
+			{ 10,"GENDER",10,TYPE_STRING,(unsigned long)(adressTbl[0].gender - adressTbl[0].first)},
 			{ -1,},			// Pos == -1 は終わりの意味を表します
 	};
 

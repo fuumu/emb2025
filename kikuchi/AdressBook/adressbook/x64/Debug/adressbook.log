@@ -1,0 +1,9 @@
+﻿  adresMain.c
+C:\Users\j-kikuchi\source\repos\AdressBook\adressbook\adresMain.c(57,60): warning C4133: '-': 'adressType *' と 'unsigned int *' の間で型に互換性がありません。
+  adressFunc.c
+  adressIO.c
+  readCsv.c
+  コードを生成中...
+C:\Users\j-kikuchi\source\repos\AdressBook\adressbook\adressFunc.c(65,1): warning C4716: 'sortAdressData': 値を返さなければいけません
+C:\Users\j-kikuchi\source\repos\AdressBook\adressbook\adressFunc.c(46,1): warning C4716: 'searchAdressData': 値を返さなければいけません
+  adressbook.vcxproj -> C:\Users\j-kikuchi\source\repos\AdressBook\x64\Debug\adressbook.exe

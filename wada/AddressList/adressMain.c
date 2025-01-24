@@ -30,6 +30,16 @@ int main(void) {
 		 "2tel2",
 		 25,
 		 "2male"},
+		{"3first",
+		 "3secound",
+		 "3postNum",
+		 "3adress",
+		 "3adress2",
+		 "3email",
+		 "3tel1",
+		 "32tel2",
+		 25,
+		 "3male"},
 	};
 #endif
 	itemType const items[] = {
@@ -59,7 +69,7 @@ int main(void) {
 	// };
 
 	unsigned char  fmt[32];
-	int count = 2;
+	int count = 3;
 	int roopflag = 1;
 	while (roopflag) {
 		unsigned int cmd;

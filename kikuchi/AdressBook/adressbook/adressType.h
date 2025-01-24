@@ -4,8 +4,8 @@
 #define ADRESS_TYPE
 
 typedef  struct adress_t{
-        unsigned char first[MAXNAME];    //å§“
-        unsigned char secound[MAXNAME];  //å
+        unsigned char first[MAXNAME];    //©
+        unsigned char secound[MAXNAME];  //–¼
         unsigned char postNum[SCHAR];   // zip code
         unsigned char adress1[MAXADRESS]; //
         unsigned char adress2[MAXADRESS]; //
@@ -20,10 +20,10 @@ typedef  struct adress_t{
 
 typedef struct item_t {
     int             pos;                        // Number
-    unsigned char   dispName[64];               // è¡¨ç¤ºã™ã‚‹æ–‡å­—åˆ—
-    int             dispWith;                   // è¡¨ç¤ºã™ã‚‹å¹…
-    item_type       itype;                      // å¤‰æ•°ã®å‹ã®ç¨®é¡
-    unsigned long  offset;                   // ã‚ªãƒ•ã‚»ãƒƒãƒˆ
+    unsigned char   dispName[64];               // •\¦‚·‚é•¶š—ñ
+    int             dispWith;                   // •\¦‚·‚é•
+    item_type       itype;                      // •Ï”‚ÌŒ^‚Ìí—Ş
+    unsigned long  offset;                   // ƒIƒtƒZƒbƒg
 } itemType;
 
 

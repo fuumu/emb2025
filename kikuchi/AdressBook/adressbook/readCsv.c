@@ -13,10 +13,10 @@ int main() {
     Person people[100];
     int count = 0;
     if (file == NULL) {
-        printf("ƒtƒ@ƒCƒ‹‚ğŠJ‚¯‚Ü‚¹‚ñ‚Å‚µ‚½B\n");
+        printf("ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã‘ã¾ã›ã‚“ã§ã—ãŸã€‚\n");
         return 1;
     }
-    // ƒwƒbƒ_[s‚ğ“Ç‚İ”ò‚Î‚·
+    // ãƒ˜ãƒƒãƒ€ãƒ¼è¡Œã‚’èª­ã¿é£›ã°ã™
     fgets(buffer, sizeof(buffer), file);
     while (fgets(buffer, sizeof(buffer), file) && count < 100) {
         char* name = strtok(buffer, ",");
@@ -30,9 +30,9 @@ int main() {
         }
     }
     fclose(file);
-    // \‘¢‘Ì‚ÉŠi”[‚³‚ê‚½ƒf[ƒ^‚ğ•\¦
+    // æ§‹é€ ä½“ã«æ ¼ç´ã•ã‚ŒãŸãƒ‡ãƒ¼ã‚¿ã‚’è¡¨ç¤º
     for (int i = 0; i < count; i++) {
-        printf("–¼‘O: %s, ”N—î: %d, E‹Æ: %s\n", people[i].name, people[i].age, people[i].occupation);
+        printf("åå‰: %s, å¹´é½¢: %d, è·æ¥­: %s\n", people[i].name, people[i].age, people[i].occupation);
     }
     return 0;
 }

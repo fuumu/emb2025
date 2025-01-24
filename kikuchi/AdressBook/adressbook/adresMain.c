@@ -15,7 +15,7 @@ void itoa(int num, char* str) {
 
 void main() {
 
-	// ZŠ˜^ƒf[ƒ^–{‘Ì
+	// ä½æ‰€éŒ²ãƒ‡ãƒ¼ã‚¿æœ¬ä½“
 #define DMYADRESSDAT
 #ifndef DMYADRESSDAT
 	adressType adressTbl[MAXTBL];
@@ -46,38 +46,38 @@ void main() {
 
 
 	itemType const items[] = {
-			{ 1,"©",10,TYPE_STRING,0x0L,"%-10s"},
-			{ 2,"–¼",10,TYPE_STRING,(unsigned long)(&adressTbl[0].secound[0] - &adressTbl[0].first[0]),"%-10s"},
-			{ 3,"—X•Ö”Ô†",10,TYPE_STRING,(unsigned long)(adressTbl[0].postNum - adressTbl[0].first),"%-10s"},
-			{ 4,"ZŠ1",20,TYPE_STRING,(unsigned long)(adressTbl[0].adress1 - adressTbl[0].first),"%-10s"},
-			{ 5,"ZŠ2",20,TYPE_STRING,(unsigned long)(adressTbl[0].adress2 - adressTbl[0].first),"%-10s"},
+			{ 1,"å§“",10,TYPE_STRING,0x0L,"%-10s"},
+			{ 2,"å",10,TYPE_STRING,(unsigned long)(&adressTbl[0].secound[0] - &adressTbl[0].first[0]),"%-10s"},
+			{ 3,"éƒµä¾¿ç•ªå·",10,TYPE_STRING,(unsigned long)(adressTbl[0].postNum - adressTbl[0].first),"%-10s"},
+			{ 4,"ä½æ‰€1",20,TYPE_STRING,(unsigned long)(adressTbl[0].adress1 - adressTbl[0].first),"%-10s"},
+			{ 5,"ä½æ‰€2",20,TYPE_STRING,(unsigned long)(adressTbl[0].adress2 - adressTbl[0].first),"%-10s"},
 			{ 6,"mail",10,TYPE_STRING,(unsigned long)(adressTbl[0].email - adressTbl[0].first),"%-10s"},
 			{ 7,"TEL1",10,TYPE_STRING,(unsigned long)(adressTbl[0].tel1 - adressTbl[0].first),"%-10s"},
 			{ 8,"TEL2",10,TYPE_STRING,(unsigned long)(adressTbl[0].tel2 - adressTbl[0].first),"%-10s"},
 			{ 9,"AGE",10,TYPE_INT,(unsigned long)(&adressTbl[0].age - &adressTbl[0]),"%-10s"},
 			{ 10,"GENDER",10,TYPE_STRING,(unsigned long)(adressTbl[0].gender - adressTbl[0].first),"%-10s"},
-			{ -1,},			// Pos == -1 ‚ÍI‚í‚è‚ÌˆÓ–¡‚ğ•\‚µ‚Ü‚·
+			{ -1,},			// Pos == -1 ã¯çµ‚ã‚ã‚Šã®æ„å‘³ã‚’è¡¨ã—ã¾ã™
 	};
 
 
 	//typedef struct item_t {
 	//	int             pos;                        // Number
-	//	unsigned char   dispName[64];               // •\¦‚·‚é•¶š—ñ
-	//	int             dispWith;                   // •\¦‚·‚é•
-	//	item_type       itype;                      // •Ï”‚ÌŒ^‚Ìí—Ş
-	//	unsigned        offset;                 // ƒIƒtƒZƒbƒg
+	//	unsigned char   dispName[64];               // è¡¨ç¤ºã™ã‚‹æ–‡å­—åˆ—
+	//	int             dispWith;                   // è¡¨ç¤ºã™ã‚‹å¹…
+	//	item_type       itype;                      // å¤‰æ•°ã®å‹ã®ç¨®é¡
+	//	unsigned        offset;                 // ã‚ªãƒ•ã‚»ãƒƒãƒˆ
 	//} itemType;
 
 
 	unsigned char	fmt[32];
 	unsigned char	fmtstr[256]= "";
 
-	int	dispOn[MAXTBL];	// ƒT[ƒ`‚µ‚Ä•\¦‚·‚é‚©‚Ç‚¤‚©‚ÌƒXƒCƒbƒ`
+	int	dispOn[MAXTBL];	// ã‚µãƒ¼ãƒã—ã¦è¡¨ç¤ºã™ã‚‹ã‹ã©ã†ã‹ã®ã‚¹ã‚¤ãƒƒãƒ
 
 
 	int itemCnt = sizeof(items) / sizeof(itemType);
 
-	// •\¦ƒXƒCƒbƒ`‚Ì‰Šú‰»
+	// è¡¨ç¤ºã‚¹ã‚¤ãƒƒãƒã®åˆæœŸåŒ–
 	for (int wi = 0;wi < MAXTBL;wi++) {
 		dispOn[wi] = 1;
 	}
@@ -85,11 +85,11 @@ void main() {
 
 #if 0
 	itemType items[] = {
-		{ 1,"©",10,TYPE_STRING},
-		{ 2,"–¼",10,TYPE_STRING},
-		{ 3,"—X•Ö”Ô†",10,TYPE_STRING},
-		{ 4,"ZŠ1",20,TYPE_STRING},
-		{ 5,"ZŠ2",20,TYPE_STRING},
+		{ 1,"å§“",10,TYPE_STRING},
+		{ 2,"å",10,TYPE_STRING},
+		{ 3,"éƒµä¾¿ç•ªå·",10,TYPE_STRING},
+		{ 4,"ä½æ‰€1",20,TYPE_STRING},
+		{ 5,"ä½æ‰€2",20,TYPE_STRING},
 		{ 6,"mail",10,TYPE_STRING},
 		{ 7,"TEL1",10,TYPE_STRING},
 		{ 8,"TEL2",10,TYPE_STRING},
@@ -99,8 +99,8 @@ void main() {
 #endif
 
 	for (int wi =  0; wi < itemCnt ; wi++) {
-		sprintf_s(fmt, sizeof(fmt), "%%-%ds ", items[wi].dispWith);		// ƒ^ƒCƒgƒ‹—p‚Ì•‚ğŒˆ’è‚µ‚ÄƒAƒCƒeƒ€‚²‚Æ‚ÌƒtƒH[ƒ}ƒbƒg‚ğì¬
-		strcat_s(fmtstr,sizeof(fmtstr), fmt);							// 1s•ª‚ÌƒtƒH[ƒ}ƒbƒg•¶š—ñ‚É‡Ÿ’Ç‰Á
+		sprintf_s(fmt, sizeof(fmt), "%%-%ds ", items[wi].dispWith);		// ã‚¿ã‚¤ãƒˆãƒ«ç”¨ã®å¹…ã‚’æ±ºå®šã—ã¦ã‚¢ã‚¤ãƒ†ãƒ ã”ã¨ã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚’ä½œæˆ
+		strcat_s(fmtstr,sizeof(fmtstr), fmt);							// 1è¡Œåˆ†ã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆæ–‡å­—åˆ—ã«é †æ¬¡è¿½åŠ 
 	}
 	strcat_s(fmtstr, sizeof(fmtstr), "\n");
 	                                                
@@ -122,33 +122,33 @@ void main() {
 
 
 	unsigned char* charPtr2;
-	charPtr2 = ((unsigned char*)&adressTbl[0].first + items[1].offset); // Œ^ƒLƒƒƒXƒg‚Æ•¶–@‚ğC³
+	charPtr2 = ((unsigned char*)&adressTbl[0].first + items[1].offset); // å‹ã‚­ãƒ£ã‚¹ãƒˆã¨æ–‡æ³•ã‚’ä¿®æ­£
 	printf("%-10s %-10s (charPtr2[0])\n", adressTbl[0].first, charPtr2);
 
-	charPtr2 = ((unsigned char*)&adressTbl[0].first + items[1].offset); // Œ^ƒLƒƒƒXƒg‚Æ•¶–@‚ğC³
+	charPtr2 = ((unsigned char*)&adressTbl[0].first + items[1].offset); // å‹ã‚­ãƒ£ã‚¹ãƒˆã¨æ–‡æ³•ã‚’ä¿®æ­£
 	printf("%-10s %-10s (charPtr2[1])\n", adressTbl[0].first, charPtr2);
 
-	charPtr2 = ((unsigned char*)&adressTbl[1].first + items[2].offset); // Œ^ƒLƒƒƒXƒg‚Æ•¶–@‚ğC³
+	charPtr2 = ((unsigned char*)&adressTbl[1].first + items[2].offset); // å‹ã‚­ãƒ£ã‚¹ãƒˆã¨æ–‡æ³•ã‚’ä¿®æ­£
 	printf("%-10s %-10s (charPtr2[0] items[2])\n", adressTbl[1].first, charPtr2);
 
-	charPtr2 = ((unsigned char*)&adressTbl[1].first + items[2].offset); // Œ^ƒLƒƒƒXƒg‚Æ•¶–@‚ğC³
+	charPtr2 = ((unsigned char*)&adressTbl[1].first + items[2].offset); // å‹ã‚­ãƒ£ã‚¹ãƒˆã¨æ–‡æ³•ã‚’ä¿®æ­£
 	printf("%-10s %-10s (charPtr2[1] items[2])\n", adressTbl[1].first, charPtr2);
 
-	//charPtr2 = ((unsigned char*)&adressTbl[0] + items[2].offset); // Œ^ƒLƒƒƒXƒg‚Æ•¶–@‚ğC³
-	//printf("%-10s %-10s (charPtr2[0] items[2] first‚È‚µ)\n", adressTbl[0].first, charPtr2);
+	//charPtr2 = ((unsigned char*)&adressTbl[0] + items[2].offset); // å‹ã‚­ãƒ£ã‚¹ãƒˆã¨æ–‡æ³•ã‚’ä¿®æ­£
+	//printf("%-10s %-10s (charPtr2[0] items[2] firstãªã—)\n", adressTbl[0].first, charPtr2);
 
-	//charPtr2 = ((unsigned char*)&adressTbl[1] + items[2].offset); // Œ^ƒLƒƒƒXƒg‚Æ•¶–@‚ğC³
-	//printf("%-10s %-10s (charPtr2[1] items[2] first‚È‚µ)\n", adressTbl[0].first, charPtr2);
+	//charPtr2 = ((unsigned char*)&adressTbl[1] + items[2].offset); // å‹ã‚­ãƒ£ã‚¹ãƒˆã¨æ–‡æ³•ã‚’ä¿®æ­£
+	//printf("%-10s %-10s (charPtr2[1] items[2] firstãªã—)\n", adressTbl[0].first, charPtr2);
 
 	//printf("%-10s ", adressTbl[0].first);
 
-	//charPtr2 = ((unsigned char*)&adressTbl[0] + items[1].offset); // Œ^ƒLƒƒƒXƒg‚Æ•¶–@‚ğC³
+	//charPtr2 = ((unsigned char*)&adressTbl[0] + items[1].offset); // å‹ã‚­ãƒ£ã‚¹ãƒˆã¨æ–‡æ³•ã‚’ä¿®æ­£
 	//printf("%-10s ", charPtr2);
 
-	//charPtr2 = ((unsigned char*)&adressTbl[0] + items[2].offset); // Œ^ƒLƒƒƒXƒg‚Æ•¶–@‚ğC³
+	//charPtr2 = ((unsigned char*)&adressTbl[0] + items[2].offset); // å‹ã‚­ãƒ£ã‚¹ãƒˆã¨æ–‡æ³•ã‚’ä¿®æ­£
 	//printf("%-10s ", charPtr2);
 
-	//printf("@(‚Î‚ç‚Î‚ç)\n");
+	//printf("ã€€(ã°ã‚‰ã°ã‚‰)\n");
 
 
 	printf("please select item\n");
@@ -162,11 +162,11 @@ void main() {
 
 // adressType adressTbl
 // itemType items[]
-// 1ƒAƒCƒeƒ€•ª•\¦‚·‚é
-// itemDat‚Ìî•ñ‚ğŒ³‚ÉŒÂ•Ê‚Ì•Ï”‚ÌƒAƒhƒŒƒX‚ğ@æ“ªƒAƒhƒŒƒX‚ÆƒIƒtƒZƒbƒg‚©‚çŒvZ‚µ‚ÄPrint‚·‚é
-// ƒf[ƒ^‚Ì”‚Í itemdat‚ÌPos‚ª|1‚É‚È‚é‚Ü‚Å‚ÌŒ”
-// ‘S•”‚ÌƒG[ƒ^‚ğPrint‚µ‚½‚çÅŒã‚É"\n"‚ğprint
-//@”O‚Ì‚½‚ß‚É itemdat‚ÌŒŸ¸‚ğs‚¤”ÍˆÍ‚Í@0‚©‚ç16‚Ü‚Å‚Æ‚·‚é
+// 1ã‚¢ã‚¤ãƒ†ãƒ åˆ†è¡¨ç¤ºã™ã‚‹
+// itemDatã®æƒ…å ±ã‚’å…ƒã«å€‹åˆ¥ã®å¤‰æ•°ã®ã‚¢ãƒ‰ãƒ¬ã‚¹ã‚’ã€€å…ˆé ­ã‚¢ãƒ‰ãƒ¬ã‚¹ã¨ã‚ªãƒ•ã‚»ãƒƒãƒˆã‹ã‚‰è¨ˆç®—ã—ã¦Printã™ã‚‹
+// ãƒ‡ãƒ¼ã‚¿ã®æ•°ã¯ itemdatã®PosãŒï¼1ã«ãªã‚‹ã¾ã§ã®ä»¶æ•°
+// å…¨éƒ¨ã®ã‚¨ãƒ¼ã‚¿ã‚’Printã—ãŸã‚‰æœ€å¾Œã«"\n"ã‚’print
+//ã€€å¿µã®ãŸã‚ã« itemdatã®æ¤œæŸ»ã‚’è¡Œã†ç¯„å›²ã¯ã€€0ã‹ã‚‰16ã¾ã§ã¨ã™ã‚‹
 
 void print1record(adressType * adressDat, itemType const * itemDat) {
 
@@ -186,23 +186,23 @@ void print1record(adressType * adressDat, itemType const * itemDat) {
 		}
 		else {
 			if (itemDat[wi].itype == TYPE_STRING) {
-				sprintf_s(fmt, sizeof(fmt), "%%-%ds ", itemDat[wi].dispWith);		// ƒ^ƒCƒgƒ‹—p‚Ì•‚ğŒˆ’è‚µ‚ÄƒAƒCƒeƒ€‚²‚Æ‚ÌƒtƒH[ƒ}ƒbƒg‚ğì¬
+				sprintf_s(fmt, sizeof(fmt), "%%-%ds ", itemDat[wi].dispWith);		// ã‚¿ã‚¤ãƒˆãƒ«ç”¨ã®å¹…ã‚’æ±ºå®šã—ã¦ã‚¢ã‚¤ãƒ†ãƒ ã”ã¨ã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚’ä½œæˆ
 
-				charPtr2 = ((unsigned char*)adressDat + itemDat[wi].offset);		 // Œ^ƒLƒƒƒXƒg‚Æ•¶–@‚ğC³
+				charPtr2 = ((unsigned char*)adressDat + itemDat[wi].offset);		 // å‹ã‚­ãƒ£ã‚¹ãƒˆã¨æ–‡æ³•ã‚’ä¿®æ­£
 				printf(fmt, charPtr2);
 
 				//printf(itemDat[wi].fmt, intPtr);
 #if 0
-				{ 1, "©", 10, TYPE_STRING, 0x0L, "%-10s" },
-				{ 2,"–¼",10,TYPE_STRING,(unsigned long)(&adressTbl[0].secound[0] - &adressTbl[0].first[0]),"%-10s" },
+				{ 1, "å§“", 10, TYPE_STRING, 0x0L, "%-10s" },
+				{ 2,"å",10,TYPE_STRING,(unsigned long)(&adressTbl[0].secound[0] - &adressTbl[0].first[0]),"%-10s" },
 #endif
 					//*charPtr2 = "AAA";
 				//*charPtr2 = 'A'
 			}
 			else if(itemDat[wi].itype == TYPE_INT) {
-				sprintf_s(fmt, sizeof(fmt), "%%-%dd ", itemDat[wi].dispWith);		// ƒ^ƒCƒgƒ‹—p‚Ì•‚ğŒˆ’è‚µ‚ÄƒAƒCƒeƒ€‚²‚Æ‚ÌƒtƒH[ƒ}ƒbƒg‚ğì¬
+				sprintf_s(fmt, sizeof(fmt), "%%-%dd ", itemDat[wi].dispWith);		// ã‚¿ã‚¤ãƒˆãƒ«ç”¨ã®å¹…ã‚’æ±ºå®šã—ã¦ã‚¢ã‚¤ãƒ†ãƒ ã”ã¨ã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚’ä½œæˆ
 
-				intPtr = ((int *)adressDat + itemDat[wi].offset);		 // Œ^ƒLƒƒƒXƒg‚Æ•¶–@‚ğC³
+				intPtr = ((int *)adressDat + itemDat[wi].offset);		 // å‹ã‚­ãƒ£ã‚¹ãƒˆã¨æ–‡æ³•ã‚’ä¿®æ­£
 				printf(fmt,intPtr);
 			}
 		}

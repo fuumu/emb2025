@@ -4,24 +4,24 @@
 #include "adressDef.h"
 
 typedef struct adress_t{
-        unsigned char first[middleValue];    //©
-        unsigned char second[middleValue];  //–¼
-        unsigned char postNum[smallValue];   //—X•Ö”Ô†
-        unsigned char address1[largeValue];   //ZŠ1i“s“¹•{Œ§Es‹æ’¬‘ºj
-        unsigned char address2[largeValue];   //ZŠ2i’¬–¼E”Ô’nj
-        unsigned char email[largeValue];     //ƒ[ƒ‹ƒAƒhƒŒƒX
-        unsigned char tel1[middleValue];     //“d˜b”Ô†i©‘îj
-        unsigned char tel2[middleValue];     //“d˜b”Ô†i‰ïĞj
-        unsigned int  age;                   //”N—î
-        unsigned char gender[smallValue];    //’j«/—«
+        unsigned char first[middleValue];    //å§“
+        unsigned char second[middleValue];  //å
+        unsigned char postNum[smallValue];   //éƒµä¾¿ç•ªå·
+        unsigned char address1[largeValue];   //ä½æ‰€1ï¼ˆéƒ½é“åºœçœŒãƒ»å¸‚åŒºç”ºæ‘ï¼‰
+        unsigned char address2[largeValue];   //ä½æ‰€2ï¼ˆç”ºåãƒ»ç•ªåœ°ï¼‰
+        unsigned char email[largeValue];     //ãƒ¡ãƒ¼ãƒ«ã‚¢ãƒ‰ãƒ¬ã‚¹
+        unsigned char tel1[middleValue];     //é›»è©±ç•ªå·ï¼ˆè‡ªå®…ï¼‰
+        unsigned char tel2[middleValue];     //é›»è©±ç•ªå·ï¼ˆä¼šç¤¾ï¼‰
+        unsigned int  age;                   //å¹´é½¢
+        unsigned char gender[smallValue];    //ç”·æ€§/å¥³æ€§
 } adressType;
 
 typedef struct item_t {
     int             pos;                        // Number
-    unsigned char   dispName[64];               // •\¦‚·‚é•¶š—ñ
-    int             dispWith;                   // •\¦‚·‚é•
-    item_type       itype;                      // •Ï”‚ÌŒ^‚Ìí—Ş
-    unsigned long   offset;                   // ƒIƒtƒZƒbƒg
+    unsigned char   dispName[64];               // è¡¨ç¤ºã™ã‚‹æ–‡å­—åˆ—
+    int             dispWith;                   // è¡¨ç¤ºã™ã‚‹å¹…
+    item_type       itype;                      // å¤‰æ•°ã®å‹ã®ç¨®é¡
+    unsigned long   offset;                   // ã‚ªãƒ•ã‚»ãƒƒãƒˆ
 } itemType;
 
 // typedef struct menu_t {

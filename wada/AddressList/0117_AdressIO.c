@@ -10,7 +10,7 @@ int SaveFunction(adressType* adressTbl, unsigned int count)
     FILE* file;
     errno_t err;
 
-    // ƒtƒ@ƒCƒ‹‚ğƒoƒCƒiƒŠ‘‚«‚İƒ‚[ƒh‚ÅŠJ‚­
+    // ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ãƒã‚¤ãƒŠãƒªæ›¸ãè¾¼ã¿ãƒ¢ãƒ¼ãƒ‰ã§é–‹ã
     err = fopen_s(&file, "adressDat.bin", "wb");
     if (err != 0 || file == NULL)
     {
@@ -18,7 +18,7 @@ int SaveFunction(adressType* adressTbl, unsigned int count)
         return -1;
     }
 
-    // ƒf[ƒ^‚ğ‘‚«‚Ş
+    // ãƒ‡ãƒ¼ã‚¿ã‚’æ›¸ãè¾¼ã‚€
     if (fwrite(adressTbl, sizeof(adressType), count, file) != count)
     {
         perror("Error writing file");
@@ -36,7 +36,7 @@ int LoadFunction(adressType* adressTbl)
     errno_t err;
     int count = 0;
 
-    // ƒtƒ@ƒCƒ‹‚ğƒoƒCƒiƒŠ“Ç‚İæ‚èƒ‚[ƒh‚ÅŠJ‚­
+    // ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ãƒã‚¤ãƒŠãƒªèª­ã¿å–ã‚Šãƒ¢ãƒ¼ãƒ‰ã§é–‹ã
     err = fopen_s(&file, "adressDat.bin", "rb");
     if (err != 0 || file == NULL)
     {
@@ -44,7 +44,7 @@ int LoadFunction(adressType* adressTbl)
         return -1;
     }
 
-    // ƒf[ƒ^‚ğ“Ç‚İ‚Ş
+    // ãƒ‡ãƒ¼ã‚¿ã‚’èª­ã¿è¾¼ã‚€
     while (fread(&adressTbl[count], sizeof(adressType), 1, file) == 1)
     {
         count++;

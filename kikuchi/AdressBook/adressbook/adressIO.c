@@ -3,7 +3,7 @@
 #include <string.h>
 
 #include "adressType.h"
-#if 0
+#if 1
 int loadAdressData(adressType* adrTblPtr)
 {
     FILE* file;

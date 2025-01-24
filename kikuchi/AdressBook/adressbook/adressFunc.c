@@ -18,24 +18,24 @@ int saveDataDelete(adressType * adrTblPtr, int dataPos) {
 //
 //	Search TOP
 //
-//@adrTblPtr[MAXTBL]	‚ÌƒAƒhƒŒƒX
-//	dispTbl[MAXTBL]		‚ÌƒAƒhƒŒƒX
+//ã€€adrTblPtr[MAXTBL]	ã®ã‚¢ãƒ‰ãƒ¬ã‚¹
+//	dispTbl[MAXTBL]		ã®ã‚¢ãƒ‰ãƒ¬ã‚¹
 //
 int searchAdressData(adressType* adrTblPtr,  int* dispTbl)
 {
-	// €–Ú‚Ì‘I‘ğ ‚¢‚Á‚½‚ñ@‰¼‚Ì€–Ú‚¾‚¯‚ÅŒŸ“¢
-	//@ŒŸõ•¶š—ñ‚Ì“ü—Í
+	// é …ç›®ã®é¸æŠ ã„ã£ãŸã‚“ã€€ä»®ã®é …ç›®ã ã‘ã§æ¤œè¨
+	//ã€€æ¤œç´¢æ–‡å­—åˆ—ã®å…¥åŠ›
 	//unsigned char	searchStr[32];
 
-	//printf("ŒŸõ•¶š—ñ‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢\n");
+	//printf("æ¤œç´¢æ–‡å­—åˆ—ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„\n");
 	//scanf_s("%s", searchStr, sizeof(searchStr));
 
-	// ‘I‘ğ‚µ‚½€–Ú‚ÆŒŸõ•¶š—ñ‚ªˆê’v‚·‚é‚©‚Ç‚¤‚©‚Ì”»’è
+	// é¸æŠã—ãŸé …ç›®ã¨æ¤œç´¢æ–‡å­—åˆ—ãŒä¸€è‡´ã™ã‚‹ã‹ã©ã†ã‹ã®åˆ¤å®š
 
 	for (int wi = 0; wi < MAXTBL; wi++) {
 		//adrTblPtr[wi].adress1
 		// searchStr
-		//•¶š—ñ‚Ì”äŠr
+		//æ–‡å­—åˆ—ã®æ¯”è¼ƒ
 		if (1) {
 			dispTbl[wi] = 1;
 		}
@@ -48,13 +48,13 @@ int searchAdressData(adressType* adrTblPtr,  int* dispTbl)
 int sortAdressData(adressType* adrTblPtr) {
 
 	adressType tmpdata;
-	// €–Ú‚Ì‘I‘ğ ‚¢‚Á‚½‚ñ@‰¼‚Ì€–Ú‚¾‚¯‚ÅŒŸ“¢
-	// ¸‡‚©~‡‚©w’è
+	// é …ç›®ã®é¸æŠ ã„ã£ãŸã‚“ã€€ä»®ã®é …ç›®ã ã‘ã§æ¤œè¨
+	// æ˜‡é †ã‹é™é †ã‹æŒ‡å®š
 
 	for (int wi = 0; wi < MAXTBL; wi++) {
 		for (int wj = wi +1 ;wj < MAXTBL  ;wj++) {
 			//adrTblPtr[wi].adress1
-			//.adress1@‚Ì’l‚Å¸‡‚Éƒ\[ƒg
+			//.adress1ã€€ã®å€¤ã§æ˜‡é †ã«ã‚½ãƒ¼ãƒˆ
 			if(strcmp( adrTblPtr[wi].adress1, adrTblPtr[wj].adress1) > 0 ) {
 				tmpdata = adrTblPtr[wi];
 				adrTblPtr[wi] = adrTblPtr[wj];

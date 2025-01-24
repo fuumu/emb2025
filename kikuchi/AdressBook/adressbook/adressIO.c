@@ -7,12 +7,17 @@
 int loadAdressData(adressType* adrTblPtr)
 {
     FILE* file;
+    errno_t err;
     int count = 0;
 
-    file = fopen_s("adressDat.bin", "rb");
+    err = fopen_s(&file, "adressDat.bin", "rb");
     if (file == NULL)
     {
         perror("Error opening file");
+        return -1;
+    }
+    if (err != 0) { // エラー処理 
+        printf("ファイルを開くのに失敗しました\n");
         return -1;
     }
 
@@ -28,11 +33,16 @@ int loadAdressData(adressType* adrTblPtr)
 int saveAdressData(adressType* adrTblPtr, int dataCnt)
 {
     FILE* file;
+    errno_t err;
 
-    file = fopen_s("adressDat.bin", "wb");
+    err = fopen_s(&file, "adressDat.bin", "wb");
     if (file == NULL)
     {
         perror("Error opening file");
+        return -1;
+    }
+    if (err != 0) { // エラー処理
+        printf("ファイルを開くのに失敗しました\n"); 
         return -1;
     }
 

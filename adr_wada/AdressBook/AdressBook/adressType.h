@@ -5,6 +5,7 @@
 
 typedef struct adress_t
 {
+    unsigned int  id[smallValue];
     unsigned char first[middleValue];   // ©
     unsigned char second[middleValue];  // –¼
     unsigned char postNum[smallValue];  // —X•Ö”Ô†

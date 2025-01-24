@@ -1,16 +1,16 @@
 # Visual Studioの.gitignoreファイル
 # ビルド結果
-.obj
-.exe
-.pdb
-.ilk
-.lib
-.dll
-.idb
-.tlog
-.log
-.vspscc
-.vssscc
+*.obj
+*.exe
+*.pdb
+*.ilk
+*.lib
+*.dll
+*.idb
+*.tlog
+*.log
+*.vspscc
+*.vssscc
 
 # Visual Studioファイル
 .vscode
@@ -22,18 +22,18 @@
 packages
 
 # その他の設定ファイル
-.user
-.suo
-.ipch
-.iobj
-.ipdb
-.aps
-.ncb
-.sdf
-.opendb
-.tlog
-.log
+*.user
+*.suo
+*.ipch
+*.iobj
+*.ipdb
+*.aps
+*.ncb
+*.sdf
+*.opendb
+*.tlog
+*.log
 
 # テンポラリファイル
-.tmp
-.temp
+*.tmp
+*.temp

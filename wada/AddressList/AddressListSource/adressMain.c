@@ -149,6 +149,3 @@ int main(void) {
 		}
 	}
 }
-
-// 変更しました！！
-// kikuchi

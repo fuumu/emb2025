@@ -80,39 +80,39 @@ void edit(adressType* adressTbl, int count, itemType* items) {
 }
 
 
-void search(adressType* adressTbl, int count, itemType* itemDat) {
-    printf("検索する %s を入力してください: ", itemDat[2].dispName); // "郵便番号" を表示
-    unsigned char searchKey[32];
-    scanf_s("%s", searchKey, sizeof(searchKey));
+// void search(adressType* adressTbl, int count, itemType* itemDat,int dspTbl) {
+//     printf("検索する %s を入力してください: ", itemDat[2].dispName); // "郵便番号" を表示
+//     unsigned char searchKey[32];
+//     scanf_s("%s", searchKey, sizeof(searchKey));
 
-    resetFlags(dspTbl, MAX_RECORDS);
+//     resetFlags(dspTbl, MAX_RECORDS);
 
-    for (int i = 0; i < MAX_RECORDS; i++) {
-        unsigned char* fieldPtr = (unsigned char*)&adressTbl[i] + itemDat[2].offset; // 郵便番号のフィールド
-        if (strcmp((char*)searchKey, (char*)fieldPtr) == 0) {
-            dspTbl[i] = 1;
-            printf("一致するデータが見つかりました:\n");
+//     for (int i = 0; i < MAX_RECORDS; i++) {
+//         unsigned char* fieldPtr = (unsigned char*)&adressTbl[i] + itemDat[2].offset; // 郵便番号のフィールド
+//         if (strcmp((char*)searchKey, (char*)fieldPtr) == 0) {
+//             dspTbl[i] = 1;
+//             printf("一致するデータが見つかりました:\n");
 
-            for (int wi = 0; wi < 10; wi++) {
-                if (itemDat[wi].pos < 0) {
-                    break;
-                }
+//             for (int wi = 0; wi < 10; wi++) {
+//                 if (itemDat[wi].pos < 0) {
+//                     break;
+//                 }
 
-                if (itemDat[wi].itype == TYPE_STRING) {
-                    unsigned char* charPtr = (unsigned char*)&adressTbl[i] + itemDat[wi].offset;
-                    printf("%s: %s\n", itemDat[wi].dispName, charPtr);
-                }
-                else if (itemDat[wi].itype == TYPE_INT) {
-                    int* intPtr = (int*)((unsigned char*)&adressTbl[i] + itemDat[wi].offset);
-                    printf("%s: %d\n", itemDat[wi].dispName, *intPtr);
-                }
-            }
-        }
-        else {
-            dspTbl[i] = 0;
-        }
-    }
-}
+//                 if (itemDat[wi].itype == TYPE_STRING) {
+//                     unsigned char* charPtr = (unsigned char*)&adressTbl[i] + itemDat[wi].offset;
+//                     printf("%s: %s\n", itemDat[wi].dispName, charPtr);
+//                 }
+//                 else if (itemDat[wi].itype == TYPE_INT) {
+//                     int* intPtr = (int*)((unsigned char*)&adressTbl[i] + itemDat[wi].offset);
+//                     printf("%s: %d\n", itemDat[wi].dispName, *intPtr);
+//                 }
+//             }
+//         }
+//         else {
+//             dspTbl[i] = 0;
+//         }
+//     }
+// }
 /*検索条件をクリア*/
 void resetFlags(int* dspTbl, int size) {
     for (int i = 0; i < size; i++) {

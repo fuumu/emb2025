@@ -79,7 +79,12 @@ void edit(adressType* adressTbl, int count, itemType* items) {
     }
 }
 
-
+void search(){
+    char buf[256];
+    printf("ŒŸõ€–ÚF");
+    scanf("%s", buf);
+    printf("%s",buf);
+}
 //void search(adressType* adressTbl, int count, itemType* itemDat) {
 //    printf("ŒŸõ‚·‚é %s ‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢: ", itemDat[2].dispName); // "—X•Ö”Ô†" ‚ğ•\¦
 //    unsigned char searchKey[32];

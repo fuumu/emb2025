@@ -2,6 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 
+
+// KIKUCHI
+
 #include "adressType.h"
 #if 1
 int loadAdressData(adressType* adrTblPtr)

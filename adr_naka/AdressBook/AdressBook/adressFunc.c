@@ -79,11 +79,22 @@ void edit(adressType* adressTbl, int count, itemType* items) {
     }
 }
 
-void search(){
+void search(itemType* items){
+    int no, item;
     char buf[256];
     printf("検索項目：");
-    scanf("%s", buf);
-    printf("%s",buf);
+        for (int i = 0; items[i].pos != -1; i++) {
+        printf("%d: %s\n", items[i].pos, items[i].dispName);//items配列のメンバpos(番号)と、dispName(日本語表記)でどの項目があるかループで順に表示
+
+    }
+            scanf("%s", &item);
+        printf("%sを検索します。",&item);
+    for (int i = 0; items[i].pos != -1; i++) {//itemsの最後に-1を配置し、そこに到達するまでループを回す
+        if (items[i].pos == item) {
+
+        }
+    }
+
 }
 //void search(adressType* adressTbl, int count, itemType* itemDat) {
 //    printf("検索する %s を入力してください: ", itemDat[2].dispName); // "郵便番号" を表示

@@ -68,10 +68,14 @@ unsigned int AddFunction(adressType* adressDat, itemType const* const itemDat, u
 				else if (itemDat[i].itype == TYPE_INT)
 				{
 					intPtr = (unsigned int*)((unsigned char*)&adressDat[count] + itemDat[i].offset);
-					printf("%s‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢F", itemDat[i].dispName);
+					if (strcmp(itemDat[i].dispName, "ID") == 0) {
+						*intPtr = count + 1;
+					} else {
+						printf("%s‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢F", itemDat[i].dispName);
 
-					scanf("%d", &intValue);
-					*intPtr = intValue;
+						scanf("%d", &intValue);
+						*intPtr = intValue;
+					}
 				}
 			}
 		}

@@ -52,7 +52,7 @@ int switchFn(adressType * adressTblptr,int comm, int* dspTbl,int datacount, item
         edit(adressTblptr, datacount, items);
         break;
     case 4:
-        search(adressTblptr, datacount, items);
+        /*search(adressTblptr, datacount, items);*/
         break;
     case 5:
         resetFlags(dspTbl, MAX_RECORDS);

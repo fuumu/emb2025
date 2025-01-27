@@ -5,7 +5,7 @@
 
 typedef struct adress_t
 {
-    unsigned int  id[smallValue];
+    unsigned int  id;       // “o˜^”Ô†
     unsigned char first[middleValue];   // ©
     unsigned char second[middleValue];  // –¼
     unsigned char postNum[smallValue];  // —X•Ö”Ô†
@@ -27,11 +27,11 @@ typedef struct item_t
     unsigned long offset;       // ƒIƒtƒZƒbƒg
 } itemType;
 
-typedef struct menu_t
-{
-    int pos;
-    unsigned char menuName[64];
-    int dispWith;
-    unsigned long offset;
-} menuType;
+//typedef struct menu_t
+//{
+//    int pos;
+//    unsigned char menuName[64];
+//    int dispWith;
+//    unsigned long offset;
+//} menuType;
 #endif // !ADRESS_TYPE

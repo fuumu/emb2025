@@ -11,7 +11,8 @@ int main(void)
 	adressType adressTbl[];
 #else
 	adressType adressTbl[5] = {
-		{"first",
+		{1,
+		 "first",
 		 "secound",
 		 "postNum",
 		 "adress",
@@ -21,7 +22,8 @@ int main(void)
 		 "tel2",
 		 25,
 		 "male"},
-		{"2first",
+		{2,
+		"2first",
 		 "2secound",
 		 "2postNum",
 		 "2adress",
@@ -31,7 +33,8 @@ int main(void)
 		 "2tel2",
 		 25,
 		 "2male"},
-		{"3first",
+		{3,
+		"3first",
 		 "3secound",
 		 "3postNum",
 		 "3adress",
@@ -44,16 +47,17 @@ int main(void)
 	};
 #endif
 	itemType const items[] = {
-		{1, "©", 10, TYPE_STRING, offsetof(adressType, first)},
-		{2, "–¼", 10, TYPE_STRING, offsetof(adressType, second)},
-		{3, "—X•Ö”Ô†", 10, TYPE_STRING, offsetof(adressType, postNum)},
-		{4, "ZŠ1", 15, TYPE_STRING, offsetof(adressType, address1)},
-		{5, "ZŠ2", 15, TYPE_STRING, offsetof(adressType, address2)},
-		{6, "mail", 10, TYPE_STRING, offsetof(adressType, email)},
-		{7, "TEL1", 10, TYPE_STRING, offsetof(adressType, tel1)},
-		{8, "TEL2", 10, TYPE_STRING, offsetof(adressType, tel2)},
-		{9, "AGE", 10, TYPE_INT, offsetof(adressType, age)},
-		{10, "GENDER", 10, TYPE_STRING, offsetof(adressType, gender)},
+		{1, "ID", 5, TYPE_INT, offsetof(adressType, id)},
+		{2, "©", 10, TYPE_STRING, offsetof(adressType, first)},
+		{3, "–¼", 10, TYPE_STRING, offsetof(adressType, second)},
+		{4, "—X•Ö”Ô†", 10, TYPE_STRING, offsetof(adressType, postNum)},
+		{5, "ZŠ1", 15, TYPE_STRING, offsetof(adressType, address1)},
+		{6, "ZŠ2", 15, TYPE_STRING, offsetof(adressType, address2)},
+		{7, "mail", 10, TYPE_STRING, offsetof(adressType, email)},
+		{8, "TEL1", 10, TYPE_STRING, offsetof(adressType, tel1)},
+		{9, "TEL2", 10, TYPE_STRING, offsetof(adressType, tel2)},
+		{10, "AGE", 5, TYPE_INT, offsetof(adressType, age)},
+		{11, "GENDER", 10, TYPE_STRING, offsetof(adressType, gender)},
 		{
 			-1,
 		},
@@ -161,4 +165,4 @@ int main(void)
 
 //•ÏX
 
-//Œ—j“ú
+//Œ—j“ú‰Î—j“ú…—j“ú…—j“ú

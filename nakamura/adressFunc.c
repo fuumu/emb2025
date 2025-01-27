@@ -206,3 +206,4 @@ void print_a_record(adressType* adressDat, itemType itemDat[]) {
 	}
 	printf("\n");
 }
+//git 用

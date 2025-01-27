@@ -89,7 +89,7 @@ void search(itemType* items){
     }
             scanf("%s", &item);
         printf("%sを検索します。",&item);
-    for (int i = 0; items[i].pos != -1; i++) {//itemsの最後に-1を配置し、そこに到達するまでループを回す
+    for (int i = 0; items[i].pos != -1; i++) {
         if (items[i].pos == item) {
 
         }

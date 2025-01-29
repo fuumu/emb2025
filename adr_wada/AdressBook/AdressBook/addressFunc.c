@@ -3,10 +3,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "adressProto.h"
-#include "adressType.h"
+#include "addressProto.h"
+#include "addressType.h"
 
-unsigned int ViewFunction(adressType* adressDat, itemType const* const itemDat)
+unsigned int ViewFunction(addressType* addressDat, itemType const* const itemDat)
 {
 
 	unsigned char fmt[32] = { 0 };
@@ -25,14 +25,14 @@ unsigned int ViewFunction(adressType* adressDat, itemType const* const itemDat)
 			{
 				sprintf_s(fmt, sizeof(fmt), "%%-%ds ", itemDat[wi].dispWith); // タイトル用の幅を決定してアイテムごとのフォーマットを作成
 
-				charPtr = ((unsigned char*)adressDat + itemDat[wi].offset); // 型キャストと文法を修正
+				charPtr = ((unsigned char*)addressDat + itemDat[wi].offset); // 型キャストと文法を修正
 				printf(fmt, charPtr);
 			}
 			else if (itemDat[wi].itype == TYPE_INT)
 			{
 				sprintf_s(fmt, sizeof(fmt), "%%-%dd ", itemDat[wi].dispWith); // タイトル用の幅を決定してアイテムごとのフォーマットを作成
 
-				intPtr = (unsigned int*)((unsigned char*)adressDat + itemDat[wi].offset); // 型キャストと文法を修正
+				intPtr = (unsigned int*)((unsigned char*)addressDat + itemDat[wi].offset); // 型キャストと文法を修正
 				printf(fmt, *intPtr);
 			}
 		}
@@ -41,7 +41,7 @@ unsigned int ViewFunction(adressType* adressDat, itemType const* const itemDat)
 	return 0;
 }
 
-unsigned int AddFunction(adressType* adressDat, itemType const* const itemDat, unsigned int count)
+unsigned int AddFunction(addressType* addressDat, itemType const* const itemDat, unsigned int count)
 { // 住所録にデータを追加する関数
 	int roopflag = 1;
 	while (roopflag)
@@ -60,14 +60,14 @@ unsigned int AddFunction(adressType* adressDat, itemType const* const itemDat, u
 			{
 				if (itemDat[i].itype == TYPE_STRING)
 				{
-					charPtr = ((unsigned char*)&adressDat[count] + (unsigned long)itemDat[i].offset);
+					charPtr = ((unsigned char*)&addressDat[count] + (unsigned long)itemDat[i].offset);
 					printf("%sを入力してください：", itemDat[i].dispName);
 					scanf("%s", fmtsmp);
 					sprintf(charPtr, "%s", fmtsmp);
 				}
 				else if (itemDat[i].itype == TYPE_INT)
 				{
-					intPtr = (unsigned int*)((unsigned char*)&adressDat[count] + itemDat[i].offset);
+					intPtr = (unsigned int*)((unsigned char*)&addressDat[count] + itemDat[i].offset);
 					if (strcmp(itemDat[i].dispName, "ID") == 0) {
 						*intPtr = count + 1;
 					} else {
@@ -87,7 +87,7 @@ unsigned int AddFunction(adressType* adressDat, itemType const* const itemDat, u
 	return count;
 }
 
-unsigned int DeleteFunction(adressType* adressDat, itemType const* const itemDat, unsigned int count)
+unsigned int DeleteFunction(addressType* addressDat, itemType const* const itemDat, unsigned int count)
 { // 住所録のデータを削除する関数
 	int roopflag = 1;
 	int target;
@@ -113,14 +113,14 @@ unsigned int DeleteFunction(adressType* adressDat, itemType const* const itemDat
 				{
 					sprintf_s(fmt, sizeof(fmt), "%%-%ds ", itemDat[wi].dispWith); // タイトル用の幅を決定してアイテムごとのフォーマットを作成
 
-					charPtr = ((unsigned char*)&adressDat[target] + itemDat[wi].offset); // 型キャストと文法を修正
+					charPtr = ((unsigned char*)&addressDat[target] + itemDat[wi].offset); // 型キャストと文法を修正
 					printf(fmt, charPtr);
 				}
 				else if (itemDat[wi].itype == TYPE_INT)
 				{
 					sprintf_s(fmt, sizeof(fmt), "%%-%dd ", itemDat[wi].dispWith); // タイトル用の幅を決定してアイテムごとのフォーマットを作成
 
-					intPtr = (unsigned int*)((unsigned char*)&adressDat[target] + itemDat[wi].offset); // 型キャストと文法を修正
+					intPtr = (unsigned int*)((unsigned char*)&addressDat[target] + itemDat[wi].offset); // 型キャストと文法を修正
 					printf(fmt, *intPtr);
 				}
 			}
@@ -130,7 +130,7 @@ unsigned int DeleteFunction(adressType* adressDat, itemType const* const itemDat
 		deside = (input != 0);
 		if (deside)
 		{
-			adressDat[target] = adressDat[target + 1];
+			addressDat[target] = addressDat[target + 1];
 			count--;
 			printf("削除が完了しました。\n");
 			printf("削除作業を続けますか？ 1:続行 0:終了\n");
@@ -140,7 +140,7 @@ unsigned int DeleteFunction(adressType* adressDat, itemType const* const itemDat
 	return count;
 }
 
-unsigned int EditFunction(adressType* adressDat, itemType const* const itemDat, unsigned int count)
+unsigned int EditFunction(addressType* addressDat, itemType const* const itemDat, unsigned int count)
 { // 住所録のデータを編集する関数
 	int roopflag = 1;
 	while (roopflag)
@@ -177,14 +177,14 @@ unsigned int EditFunction(adressType* adressDat, itemType const* const itemDat, 
 				{
 					sprintf_s(fmt, sizeof(fmt), "%%-%ds ", itemDat[wi].dispWith); // タイトル用の幅を決定してアイテムごとのフォーマットを作成
 
-					charPtr = ((unsigned char*)&adressDat[target] + itemDat[wi].offset); // 型キャストと文法を修正
+					charPtr = ((unsigned char*)&addressDat[target] + itemDat[wi].offset); // 型キャストと文法を修正
 					printf(fmt, charPtr);
 				}
 				else if (itemDat[wi].itype == TYPE_INT)
 				{
 					sprintf_s(fmt, sizeof(fmt), "%%-%dd ", itemDat[wi].dispWith); // タイトル用の幅を決定してアイテムごとのフォーマットを作成
 
-					intPtr = (unsigned int*)((unsigned char*)&adressDat[target] + itemDat[wi].offset); // 型キャストと文法を修正
+					intPtr = (unsigned int*)((unsigned char*)&addressDat[target] + itemDat[wi].offset); // 型キャストと文法を修正
 					printf(fmt, *intPtr);
 				}
 			}
@@ -206,14 +206,14 @@ unsigned int EditFunction(adressType* adressDat, itemType const* const itemDat, 
 		title -= 1; // itemDatの添え字に合うようにする itemDat[0].pos　= 1 ->title "姓", itemDat[title].dispName->"名"となりズレてしまうので
 		if (itemDat[target].itype == TYPE_STRING)
 		{
-			charPtr = ((unsigned char*)&adressDat[target] + (unsigned long)itemDat[title].offset);
+			charPtr = ((unsigned char*)&addressDat[target] + (unsigned long)itemDat[title].offset);
 			printf("%sを入力してください：", itemDat[title].dispName);
 			scanf("%s", fmtsmp);
 			sprintf(charPtr, "%s", fmtsmp);
 		}
 		else if (itemDat[target].itype == TYPE_INT)
 		{
-			intPtr = (unsigned int*)((unsigned char*)&adressDat[target] + itemDat[title].offset);
+			intPtr = (unsigned int*)((unsigned char*)&addressDat[target] + itemDat[title].offset);
 			printf("%sを入力してください：", itemDat[title].dispName);
 
 			scanf("%d", &intValue);

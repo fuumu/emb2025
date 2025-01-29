@@ -1,5 +1,5 @@
-#ifndef ADRESS_DEF
-#define ADRESS_DEF
+#ifndef address_DEF
+#define address_DEF
 
 #define smallValue 16
 #define middleValue 32

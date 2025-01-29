@@ -1,9 +1,9 @@
-#ifndef ADRESS_TYPE
-#define ADRESS_TYPE
+#ifndef address_TYPE
+#define address_TYPE
 
-#include "adressDef.h"
+#include "addressDef.h"
 
-typedef struct adress_t
+typedef struct address_t
 {
     unsigned int  id;       // 登録番号
     unsigned char first[middleValue];   // 姓
@@ -16,7 +16,7 @@ typedef struct adress_t
     unsigned char tel2[middleValue];    // 電話番号（会社）
     unsigned int age;                   // 年齢
     unsigned char gender[smallValue];   // 男性/女性
-} adressType;
+} addressType;
 
 typedef struct item_t
 {
@@ -34,4 +34,4 @@ typedef struct item_t
 //    int dispWith;
 //    unsigned long offset;
 //} menuType;
-#endif // !ADRESS_TYPE
+#endif // !address_TYPE

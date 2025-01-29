@@ -2,16 +2,16 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "adressProto.h"
-#include "adressType.h"
+#include "addressProto.h"
+#include "addressType.h"
 
-int SaveFunction(adressType* adressTbl, unsigned int count)
+int SaveFunction(addressType* addressTbl, unsigned int count)
 {
     FILE* file;
     errno_t err;
 
     // ファイルをバイナリ書き込みモードで開く
-    err = fopen_s(&file, "adressDat.bin", "wb");
+    err = fopen_s(&file, "addressDat.bin", "wb");
     if (err != 0 || file == NULL)
     {
         perror("Error opening file");
@@ -19,7 +19,7 @@ int SaveFunction(adressType* adressTbl, unsigned int count)
     }
 
     // データを書き込む
-    if (fwrite(adressTbl, sizeof(adressType), count, file) != count)
+    if (fwrite(addressTbl, sizeof(addressType), count, file) != count)
     {
         perror("Error writing file");
         fclose(file);
@@ -30,14 +30,14 @@ int SaveFunction(adressType* adressTbl, unsigned int count)
     return 0;
 }
 
-int LoadFunction(adressType* adressTbl)
+int LoadFunction(addressType* addressTbl)
 {
     FILE* file;
     errno_t err;
     int count = 0;
 
     // ファイルをバイナリ読み取りモードで開く
-    err = fopen_s(&file, "adressDat.bin", "rb");
+    err = fopen_s(&file, "addressDat.bin", "rb");
     if (err != 0 || file == NULL)
     {
         perror("Error opening file");
@@ -45,7 +45,7 @@ int LoadFunction(adressType* adressTbl)
     }
 
     // データを読み込む
-    while (fread(&adressTbl[count], sizeof(adressType), 1, file) == 1)
+    while (fread(&addressTbl[count], sizeof(addressType), 1, file) == 1)
     {
         count++;
     }

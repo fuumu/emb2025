@@ -22,7 +22,7 @@
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{d2f2b5a9-411d-4320-8616-1762cc7727ef}</ProjectGuid>
-    <RootNamespace>AdressBook</RootNamespace>
+    <RootNamespace>addressBook</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -127,14 +127,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="adressFunc.c" />
-    <ClCompile Include="adressIO.c" />
-    <ClCompile Include="adressMain.c" />
+    <ClCompile Include="addressFunc.c" />
+    <ClCompile Include="addressIO.c" />
+    <ClCompile Include="addressMain.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="adressDef.h" />
-    <ClInclude Include="adressProto.h" />
-    <ClInclude Include="adressType.h" />
+    <ClInclude Include="addressDef.h" />
+    <ClInclude Include="addressProto.h" />
+    <ClInclude Include="addressType.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

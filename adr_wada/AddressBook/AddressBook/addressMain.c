@@ -6,11 +6,11 @@
 
 int main(void)
 {
-#define DMYADDRESSDAT
-#ifndef DMYADDRESSDAT
+#define DMYaddressTbl
+#ifndef DMYaddressTbl
     addressType addressTbl[];
 #else
-    addressType addressTbl[5] = {
+    addressType addressTbl[10] = {
         {1,
          "first",
          "second",
@@ -85,20 +85,20 @@ int main(void)
         },
     };
 
-    // menuType menus[] = {
-    //  {1,"データを表示",10,offsetof(itemType, pos)},
-    //  {2,"追加",10,offsetof(itemType, pos)},
-    //  {3,"削除",10,offsetof(itemType, pos)},
-    //  {4,"編集",10,offsetof(itemType, pos)},
-    //  {5,"検索",10,offsetof(itemType, pos)},
-    //  {6,"ソート",10,offsetof(itemType, pos)},
-    //  {7,"ファイル保存",10,offsetof(itemType, pos)},
-    //  {8,"ファイル読み込み",10,offsetof(itemType, pos)},
-    //  {9,"終了",10,offsetof(itemType, pos)},
-    // };
+    menuType menus[] = {
+        {0, "データを表示", ViewFunction},
+        {1, "追加", AddFunction},
+        {2, "削除", DeleteFunction},
+        {3, "編集", EditFunction},
+        {4, "検索", SearchFunction},
+        // {5, "ソート", SortFunction},
+        // {6, "ファイル保存", SaveFunction},
+        // {7, "ファイル読み込み", LoadFunction},
+		{9, "終了", NULL},
+        { -1, NULL, NULL } // 終端を示す
+    };
 
-    unsigned char fmt[32];
-    int count = 3;
+    int count = 5;
     int roopflag = 1;
     while (roopflag)
     {
@@ -129,57 +129,21 @@ int main(void)
         }
         else
         {
-            printf("住所録アプリケーション\n");
-            printf("データ件数(%d)", count);
-            printf("コマンドを入力してください\n");
-            printf("0:データを表示 1：追加 2:削除 3:編集 4:検索 5:ソート 6:ファイル保存 7: ファイル読み込み　9：終了\n");
+			DisplayMenu(menus, count);
 
             scanf("%d", &cmd);
 
-            switch (cmd)
-            {
-            case 0: // データを全件表示
-                for (int i = 0; i < 16; i++)
-                {
-                    if (items[i].pos < 0)
-                    {
+            if (cmd == 9) {
+                roopflag = 0;
+            } else {
+                for (int i = 0; i < sizeof(menus) / sizeof(menuType); i++) {
+                    if (menus[i].id == cmd) {
+                        if (menus[i].func != NULL) {
+                            count = menus[i].func(addressTbl, items, count);
+                        }
                         break;
                     }
-                    sprintf_s(fmt, sizeof(fmt), "%%-%ds ", items[i].dispWith);
-                    printf(fmt, items[i].dispName);
                 }
-                printf("\n");
-                for (int j = 0; j < count; j++)
-                {
-                    ViewFunction(&addressTbl[j], items);
-                }
-                break;
-            case 1: // データを追加
-                count = AddFunction(addressTbl, items, count);
-                break;
-            case 2: // データを削除
-                count = DeleteFunction(addressTbl, items, count);
-                break;
-            case 3: // データを編集
-                EditFunction(addressTbl, items, count);
-                break;
-                // case 4: //データを検索
-                //  SearchFunction(addressTbl, count);
-                //  break;
-                // case 5: //データをソート
-                //  SortFunction(addressTbl, count);
-                //  break;
-                // case 6: //データをセーブ
-                //  count = SaveFunction(addressTbl, count);
-                //  break;
-                // case 7: //データをロード
-                //  count = LoadFunction(addressTbl);
-                //  break;
-            case 9: // システムを終了
-                roopflag = 0;
-                break;
-            default:
-                break;
             }
         }
     }

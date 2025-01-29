@@ -7,10 +7,10 @@ typedef struct address_t
 {
     unsigned int  id;       // 登録番号
     unsigned char first[middleValue];   // 姓
-    unsigned char second[middleValue];  // 名
+    unsigned char second[middleValue];  // addressTbl
     unsigned char postNum[smallValue];  // 郵便番号
     unsigned char address1[largeValue]; // 住所1（都道府県・市区町村）
-    unsigned char address2[largeValue]; // 住所2（町名・番地）
+    unsigned char address2[largeValue]; // 住所2（町addressTbl・番地）
     unsigned char email[largeValue];    // メールアドレス
     unsigned char tel1[middleValue];    // 電話番号（自宅）
     unsigned char tel2[middleValue];    // 電話番号（会社）
@@ -27,11 +27,10 @@ typedef struct item_t
     unsigned long offset;       // オフセット
 } itemType;
 
-//typedef struct menu_t
-//{
-//    int pos;
-//    unsigned char menuName[64];
-//    int dispWith;
-//    unsigned long offset;
-//} menuType;
+ //menuType構造体の定義とmenus配列の設定
+typedef struct {
+    int id;
+    const char* name;
+    unsigned int (*func)(addressType*, itemType const*, unsigned int);
+} menuType;
 #endif // !address_TYPE

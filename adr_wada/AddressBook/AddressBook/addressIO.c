@@ -11,7 +11,7 @@ int SaveFunction(addressType* addressTbl, unsigned int count)
     errno_t err;
 
     // ファイルをバイナリ書き込みモードで開く
-    err = fopen_s(&file, "addressDat.bin", "wb");
+    err = fopen_s(&file, "addressTbl.bin", "wb");
     if (err != 0 || file == NULL)
     {
         perror("Error opening file");
@@ -37,7 +37,7 @@ int LoadFunction(addressType* addressTbl)
     int count = 0;
 
     // ファイルをバイナリ読み取りモードで開く
-    err = fopen_s(&file, "addressDat.bin", "rb");
+    err = fopen_s(&file, "addressTbl.bin", "rb");
     if (err != 0 || file == NULL)
     {
         perror("Error opening file");

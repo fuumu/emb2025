@@ -127,14 +127,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AddressBook/addressFunc.c" />
-    <ClCompile Include="AddressBook/addressIO.c" />
-    <ClCompile Include="AddressBook/addressMain.c" />
+    <ClCompile Include="addressFunc.c" />
+    <ClCompile Include="addressIO.c" />
+    <ClCompile Include="addressMain.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AddressBook/addressDef.h" />
-    <ClInclude Include="AddressBook/addressProto.h" />
-    <ClInclude Include="AddressBook/addressType.h" />
+    <ClInclude Include="addressDef.h" />
+    <ClInclude Include="addressProto.h" />
+    <ClInclude Include="addressType.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -10,8 +10,8 @@ unsigned int AddFunction(addressType* addressTbl, itemType const* const itemTbl,
 unsigned int DeleteFunction(addressType* addressTbl, itemType const* const itemTbl, unsigned int count); // 住所録のデータを削除する関数
 unsigned int EditFunction(addressType* addressTbl, itemType const* const itemTbl, unsigned int count);   // 住所録のデータを編集する関数
 unsigned int SearchFunction(addressType* addressTbl, itemType const* const itemTbl, unsigned int count); //住所録のデータを検索する関数
-// void SortFunction(addressType* addressTbl, unsigned int count); //住所録のデータをソートする関数
-// int SaveFunction(addressType* addressTbl, unsigned int count); //ファイルにデータを保存する関数
-// int LoadFunction(addressType* addressTbl); //ファイルからデータを読み込み関数
+unsigned int SortFunction(addressType* addressTbl, itemType const* const itemTbl, unsigned int count); //住所録のデータをソートする関数
+unsigned int SaveFunction(addressType* addressTbl, itemType const* const itemTbl, unsigned int count); //ファイルにデータを保存する関数
+unsigned int LoadFunction(addressType* addressTbl, itemType const* const itemTbl, unsigned int count); //ファイルからデータを読み込み関数
 
 #endif // !address_PROTTO

@@ -91,9 +91,9 @@ int main(void)
         {2, "削除", DeleteFunction},
         {3, "編集", EditFunction},
         {4, "検索", SearchFunction},
-        // {5, "ソート", SortFunction},
-        // {6, "ファイル保存", SaveFunction},
-        // {7, "ファイル読み込み", LoadFunction},
+        {5, "ソート", SortFunction},
+        {6, "ファイル保存", SaveFunction},
+        {7, "ファイル読み込み", LoadFunction},
 		{9, "終了", NULL},
         { -1, NULL, NULL } // 終端を示す
     };

@@ -5,7 +5,7 @@
 #include "addressProto.h"
 #include "addressType.h"
 
-int SaveFunction(addressType* addressTbl, unsigned int count)
+int SaveFunction(addressType* addressTbl, itemType const* const itemTbl, unsigned int count)
 {
     FILE* file;
     errno_t err;
@@ -27,14 +27,15 @@ int SaveFunction(addressType* addressTbl, unsigned int count)
     }
 
     fclose(file);
+    printf("データが保存されました。\n");
     return 0;
 }
 
-int LoadFunction(addressType* addressTbl)
+int LoadFunction(addressType* addressTbl, itemType const* const itemTbl, unsigned int count)
 {
     FILE* file;
     errno_t err;
-    int count = 0;
+    int frcon = 0;
 
     // ファイルをバイナリ読み取りモードで開く
     err = fopen_s(&file, "addressTbl.bin", "rb");
@@ -45,11 +46,12 @@ int LoadFunction(addressType* addressTbl)
     }
 
     // データを読み込む
-    while (fread(&addressTbl[count], sizeof(addressType), 1, file) == 1)
+    while (fread(&addressTbl[frcon], sizeof(addressType), 1, file) == 1)
     {
-        count++;
+        frcon++;
     }
 
     fclose(file);
-    return count;
+    printf("データが読み込まれました。\n");
+    return frcon;
 }

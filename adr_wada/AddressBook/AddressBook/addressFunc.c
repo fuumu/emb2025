@@ -10,9 +10,9 @@ bool showHeader = true;
 
 // メニュー表示関数の実装
 void DisplayMenu(menuType* menus, unsigned int count) {
-    printf(u8"住所録アプリケーション\n");
-    printf(u8"データ件数(%d)\n", count);
-    printf(u8"コマンドを入力してください\n");
+    printf("住所録アプリケーション\n");
+    printf("データ件数(%d)\n", count);
+    printf("コマンドを入力してください\n");
     for (int i = 0; menus[i].name != NULL; i++) {
         printf("%d: %s ", menus[i].id, menus[i].name);
     }
@@ -40,228 +40,229 @@ unsigned int HeaderFunction(itemType const* const itemTbl)
 
 unsigned int ViewFunction(addressType* addressTbl, itemType const* const itemTbl, unsigned int count)
 {
-    unsigned char fmt[32] = { 0 };
-    unsigned char* charPtr;
-    unsigned int* intPtr = 0;
+	unsigned char fmt[32] = { 0 };
+	unsigned char* charPtr;
+	unsigned int* intPtr = 0;
 
     if (showHeader) {
         HeaderFunction(itemTbl);
     }
 
     for (unsigned int j = 0; j < count; j++) { // ここで全件ループ
-        for (int wi = 0; wi < 16; wi++)
-        {
+	for (int wi = 0; wi < 16; wi++)
+	{
             if (itemTbl[wi].pos < 0)
-            {
-                break;
-            }
-            else
-            {
+		{
+			break;
+		}
+		else
+		{
                 if (itemTbl[wi].itype == TYPE_STRING)
-                {
+			{
                     sprintf_s(fmt, sizeof(fmt), "%%-%ds ", itemTbl[wi].dispWith); // タイトル用の幅を決定してアイテムごとのフォーマットを作成
 
                     charPtr = ((unsigned char*)(&addressTbl[j]) + itemTbl[wi].offset); // 型キャストと文法を修正
-                    printf(fmt, charPtr);
-                }
+				printf(fmt, charPtr);
+			}
                 else if (itemTbl[wi].itype == TYPE_INT)
-                {
+			{
                     sprintf_s(fmt, sizeof(fmt), "%%-%dd ", itemTbl[wi].dispWith); // タイトル用の幅を決定してアイテムごとのフォーマットを作成
 
                     intPtr = (unsigned int*)((unsigned char*)(&addressTbl[j]) + itemTbl[wi].offset); // 型キャストと文法を修正
-                    printf(fmt, *intPtr);
-                }
-            }
-        }
-        printf("\n");
-    }
+				printf(fmt, *intPtr);
+			}
+		}
+	}
+	printf("\n");
+	return 0;
+}
     return count;
 }
 
 unsigned int AddFunction(addressType* addressTbl, itemType const* const itemTbl, unsigned int count)
 { // 住所録にデータを追加する関数
-    int roopflag = 1;
-    while (roopflag)
-    {
+	int roopflag = 1;
+	while (roopflag)
+	{
         if (count >= 5) {
-            printf(u8"これ以上追加できません。\n");
+            printf("これ以上追加できません。\n");
             return count;
         }
-        unsigned char fmtsmp[255] = { 0 };
-        unsigned char* charPtr;
-        unsigned int intValue;
-        unsigned int* intPtr = 0;
-        for (int i = 0; i < 16; i++)
-        {
+		unsigned char fmtsmp[255] = { 0 };
+		unsigned char* charPtr;
+		unsigned int intValue;
+		unsigned int* intPtr = 0;
+		for (int i = 0; i < 16; i++)
+		{
             if (itemTbl[i].pos < 0)
-            {
-                break;
-            }
-            else
-            {
+			{
+				break;
+			}
+			else
+			{
                 if (itemTbl[i].itype == TYPE_STRING)
-                {
+				{
                     charPtr = ((unsigned char*)&addressTbl[count] + (unsigned long)itemTbl[i].offset);
-                    printf(u8"%sを入力してください：", itemTbl[i].dispName);
-                    scanf("%s", fmtsmp);
-                    sprintf(charPtr, "%s", fmtsmp);
-                }
+                    printf("%sを入力してください：", itemTbl[i].dispName);
+					scanf("%s", fmtsmp);
+					sprintf(charPtr, "%s", fmtsmp);
+				}
                 else if (itemTbl[i].itype == TYPE_INT)
-                {
+				{
                     intPtr = (unsigned int*)((unsigned char*)&addressTbl[count] + itemTbl[i].offset);
                     if (strcmp(itemTbl[i].dispName, "ID") == 0) {
-                        *intPtr = count + 1;
+						*intPtr = count + 1;
                     }
                     else {
-                        printf(u8"%sを入力してください：", itemTbl[i].dispName);
+                        printf("%sを入力してください：", itemTbl[i].dispName);
 
-                        scanf("%d", &intValue);
-                        *intPtr = intValue;
-                    }
-                }
-            }
-        }
-        printf(u8"データが追加されました。\n");
-        count++;
-        printf(u8"追加作業を続けますか？ 1:続行 0:終了\n");
-        scanf("%d", &roopflag);
-    }
-    return count;
+						scanf("%d", &intValue);
+						*intPtr = intValue;
+					}
+				}
+			}
+		}
+        printf("データが追加されました。\n");
+		count++;
+        printf("追加作業を続けますか？ 1:続行 0:終了\n");
+		scanf("%d", &roopflag);
+	}
+	return count;
 }
 
 unsigned int DeleteFunction(addressType* addressTbl, itemType const* const itemTbl, unsigned int count)
 { // 住所録のデータを削除する関数
-    int roopflag = 1;
-    int target;
-    int input;
-    unsigned char fmt[32] = { 0 };
-    unsigned char* charPtr;
-    unsigned int* intPtr = 0;
-    bool deside;
-    while (roopflag)
-    {
-        printf(u8"削除したいデータの番号を入力してください：");
-        scanf("%d", &target); // 削除したいデータ番号を入力させる
+	int roopflag = 1;
+	int target;
+	int input;
+	unsigned char fmt[32] = { 0 };
+	unsigned char* charPtr;
+	unsigned int* intPtr = 0;
+	bool deside;
+	while (roopflag)
+	{
+        printf("削除したいデータの番号を入力してください：");
+		scanf("%d", &target); // 削除したいデータ番号を入力させる
 
         HeaderFunction(itemTbl);
 
-        for (int wi = 0; wi < 16; wi++)
-        {
+		for (int wi = 0; wi < 16; wi++)
+		{
             if (itemTbl[wi].pos < 0)
-            {
-                break;
-            }
-            else
-            {
+			{
+				break;
+			}
+			else
+			{
                 if (itemTbl[wi].itype == TYPE_STRING)
-                {
+				{
                     sprintf_s(fmt, sizeof(fmt), "%%-%ds ", itemTbl[wi].dispWith); // タイトル用の幅を決定してアイテムごとのフォーマットを作成
 
                     charPtr = ((unsigned char*)&addressTbl[target] + itemTbl[wi].offset); // 型キャストと文法を修正
-                    printf(fmt, charPtr);
-                }
+					printf(fmt, charPtr);
+				}
                 else if (itemTbl[wi].itype == TYPE_INT)
-                {
+				{
                     sprintf_s(fmt, sizeof(fmt), "%%-%dd ", itemTbl[wi].dispWith); // タイトル用の幅を決定してアイテムごとのフォーマットを作成
 
                     intPtr = (unsigned int*)((unsigned char*)&addressTbl[target] + itemTbl[wi].offset); // 型キャストと文法を修正
-                    printf(fmt, *intPtr);
-                }
-            }
-        }
-        printf(u8"このデータを削除しますか？ 1:はい 0:いいえ\n");
-        scanf("%d", &input);
-        deside = (input != 0);
-        if (deside)
-        {
+					printf(fmt, *intPtr);
+				}
+			}
+		}
+        printf("このデータを削除しますか？ 1:はい 0:いいえ\n");
+		scanf("%d", &input);
+		deside = (input != 0);
+		if (deside)
+		{
             addressTbl[target] = addressTbl[target + 1];
-            count--;
-            printf(u8"削除が完了しました。\n");
-            printf(u8"削除作業を続けますか？ 1:続行 0:終了\n");
-            scanf("%d", &roopflag);
-        }
-    }
-    return count;
+			count--;
+            printf("削除が完了しました。\n");
+            printf("削除作業を続けますか？ 1:続行 0:終了\n");
+			scanf("%d", &roopflag);
+		}
+	}
+	return count;
 }
 
 unsigned int EditFunction(addressType* addressTbl, itemType const* const itemTbl, unsigned int count)
 { // 住所録のデータを編集する関数
-    int roopflag = 1;
-    while (roopflag)
-    {
-        int target;
-        int title;
-        unsigned char fmt[32] = { 0 };
-        unsigned char fmtsmp[255] = { 0 };
-        unsigned char* charPtr;
-        unsigned int* intPtr = 0;
-        unsigned int intValue;
-        printf(u8"編集したいデータの番号を入力してください：");
-        scanf("%d", &target); // 編集したいデータ番号を入力させる
+	int roopflag = 1;
+	while (roopflag)
+	{
+		int target;
+		int title;
+		unsigned char fmt[32] = { 0 };
+		unsigned char fmtsmp[255] = { 0 };
+		unsigned char* charPtr;
+		unsigned int* intPtr = 0;
+		unsigned int intValue;
+        printf("編集したいデータの番号を入力してください：");
+		scanf("%d", &target); // 編集したいデータ番号を入力させる
 
         HeaderFunction(itemTbl);
 
-        for (int wi = 0; wi < 16; wi++)
-        {
+		for (int wi = 0; wi < 16; wi++)
+		{
             if (itemTbl[wi].pos < 0)
-            {
-                break;
-            }
-            else
-            {
+			{
+				break;
+			}
+			else
+			{
                 if (itemTbl[wi].itype == TYPE_STRING)
-                {
+				{
                     sprintf_s(fmt, sizeof(fmt), "%%-%ds ", itemTbl[wi].dispWith); // タイトル用の幅を決定してアイテムごとのフォーマットを作成
 
                     charPtr = ((unsigned char*)&addressTbl[target] + itemTbl[wi].offset); // 型キャストと文法を修正
-                    printf(fmt, charPtr);
-                }
+					printf(fmt, charPtr);
+				}
                 else if (itemTbl[wi].itype == TYPE_INT)
-                {
+				{
                     sprintf_s(fmt, sizeof(fmt), "%%-%dd ", itemTbl[wi].dispWith); // タイトル用の幅を決定してアイテムごとのフォーマットを作成
 
                     intPtr = (unsigned int*)((unsigned char*)&addressTbl[target] + itemTbl[wi].offset); // 型キャストと文法を修正
-                    printf(fmt, *intPtr);
-                }
-            }
-        }
-        printf(u8"\n編集したい項目を入力してください\n"); // 編集したい項目番号を入力させる
-        for (int wj = 0; wj < 16; wj++)
-        {
+					printf(fmt, *intPtr);
+				}
+			}
+		}
+        printf("\n編集したい項目を入力してください\n"); // 編集したい項目番号を入力させる
+		for (int wj = 0; wj < 16; wj++)
+		{
             if (itemTbl[wj].pos < 0)
-            {
-                break;
-            }
-            else
-            {
+			{
+				break;
+			}
+			else
+			{
                 printf("%d:%s ", itemTbl[wj].pos, itemTbl[wj].dispName);
-            }
-        }
-        printf("\n");
-        scanf("%d", &title);
+			}
+		}
+		printf("\n");
+		scanf("%d", &title);
         title -= 1; // itemTblの添え字に合うようにする itemTbl[0].pos　= 1 ->title "姓", itemTbl[title].dispName->"名"となりズレてしまうので
         if (itemTbl[target].itype == TYPE_STRING)
-        {
+		{
             charPtr = ((unsigned char*)&addressTbl[target] + (unsigned long)itemTbl[title].offset);
-            printf(u8"%sを入力してください：", itemTbl[title].dispName);
-            scanf("%s", fmtsmp);
-            sprintf(charPtr, "%s", fmtsmp);
-        }
+            printf("%sを入力してください：", itemTbl[title].dispName);
+			scanf("%s", fmtsmp);
+			sprintf(charPtr, "%s", fmtsmp);
+		}
         else if (itemTbl[target].itype == TYPE_INT)
-        {
+		{
             intPtr = (unsigned int*)((unsigned char*)&addressTbl[target] + itemTbl[title].offset);
-            printf(u8"%sを入力してください：", itemTbl[title].dispName);
+            printf("%sを入力してください：", itemTbl[title].dispName);
 
-            scanf("%d", &intValue);
-            *intPtr = intValue;
-        }
+			scanf("%d", &intValue);
+			*intPtr = intValue;
+		}
 
-        printf("\n");
+		printf("\n");
 
-        if (title != 0)
-        {
-            printf(u8"データが更新されました。\n");
-            printf(u8"編集を続けますか？ 1:続行 0:終了\n");
+		if (title != 0)
+		{
+            printf("データが更新されました。\n");
+            printf("編集を続けますか？ 1:続行 0:終了\n");
             scanf("%d", &roopflag);
         }
     }
@@ -278,7 +279,7 @@ unsigned int SearchFunction(addressType* addressTbl, itemType const* const itemT
         char searchString[256];
 
         // 検索するフィールドを選択
-        printf(u8"検索するフィールドを選択してください:\n");
+        printf("検索するフィールドを選択してください:\n");
         for (int i = 0; i < 16; i++) {
             if (itemTbl[i].pos < 0) {
                 break;
@@ -289,16 +290,16 @@ unsigned int SearchFunction(addressType* addressTbl, itemType const* const itemT
         fieldIndex -= 1; // itemTblのインデックスに合わせる
 
         if (fieldIndex < 0 || fieldIndex >= 16 || itemTbl[fieldIndex].pos < 0) {
-            printf(u8"無効なフィールド選択です。\n");
+            printf("無効なフィールド選択です。\n");
             return count;
         }
 
         // 検索文字列を入力
-        printf(u8"%sを入力してください：", itemTbl[fieldIndex].dispName);
+        printf("%sを入力してください：", itemTbl[fieldIndex].dispName);
         scanf("%s", searchString);
 
         // 検索して一致するデータを表示
-        printf(u8"検索結果:\n");
+        printf("検索結果:\n");
         HeaderFunction(itemTbl);
         showHeader = false; // ヘッダーを表示しないように設定
         for (unsigned int i = 0; i < count; i++) {
@@ -316,9 +317,9 @@ unsigned int SearchFunction(addressType* addressTbl, itemType const* const itemT
             }
         }
 
-        printf(u8"検索を続けますか？ 1:続行 0:終了\n");
-        scanf("%d", &roopflag);
-    }
+        printf("検索を続けますか？ 1:続行 0:終了\n");
+			scanf("%d", &roopflag);
+		}
     showHeader = true; // ヘッダーを表示しないように設定
     return count;
 }
@@ -327,7 +328,7 @@ unsigned int SortFunction(addressType* addressTbl, itemType const* const itemTbl
     int fieldIndex = -1;
 
     // ソートするフィールドを選択
-    printf(u8"ソートするフィールドを選択してください:\n");
+    printf("ソートするフィールドを選択してください:\n");
     for (int i = 0; i < 16; i++) {
         if (itemTbl[i].pos < 0) {
             break;
@@ -338,7 +339,7 @@ unsigned int SortFunction(addressType* addressTbl, itemType const* const itemTbl
     fieldIndex -= 1; // itemTblのインデックスに合わせる
 
     if (fieldIndex < 0 || fieldIndex >= 16 || itemTbl[fieldIndex].pos < 0) {
-        printf(u8"無効なフィールド選択です。\n");
+        printf("無効なフィールド選択です。\n");
         return count;
     }
 
@@ -368,8 +369,8 @@ unsigned int SortFunction(addressType* addressTbl, itemType const* const itemTbl
                 addressTbl[j + 1] = temp;
             }
         }
-    }
+	}
 
-    printf(u8"ソートが完了しました。\n");
+    printf("ソートが完了しました。\n");
     return count;
 }

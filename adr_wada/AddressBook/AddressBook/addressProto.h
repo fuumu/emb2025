@@ -13,5 +13,4 @@ unsigned int SearchFunction(addressType* addressTbl, itemType const* const itemT
 unsigned int SortFunction(addressType* addressTbl, itemType const* const itemTbl, unsigned int count); //住所録のデータをソートする関数
 unsigned int SaveFunction(addressType* addressTbl, itemType const* const itemTbl, unsigned int count); //ファイルにデータを保存する関数
 unsigned int LoadFunction(addressType* addressTbl, itemType const* const itemTbl, unsigned int count); //ファイルからデータを読み込み関数
-
 #endif // !address_PROTTO

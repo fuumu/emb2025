@@ -10,7 +10,7 @@ int SaveFunction(addressType* addressTbl, itemType const* const itemTbl, unsigne
     FILE* file;
     errno_t err;
 
-    // ƒtƒ@ƒCƒ‹‚ğƒoƒCƒiƒŠ‘‚«‚İƒ‚[ƒh‚ÅŠJ‚­
+    // ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ãƒã‚¤ãƒŠãƒªæ›¸ãè¾¼ã¿ãƒ¢ãƒ¼ãƒ‰ã§é–‹ã
     err = fopen_s(&file, "addressTbl.bin", "wb");
     if (err != 0 || file == NULL)
     {
@@ -18,7 +18,7 @@ int SaveFunction(addressType* addressTbl, itemType const* const itemTbl, unsigne
         return -1;
     }
 
-    // ƒf[ƒ^‚ğ‘‚«‚Ş
+    // ãƒ‡ãƒ¼ã‚¿ã‚’æ›¸ãè¾¼ã‚€
     if (fwrite(addressTbl, sizeof(addressType), count, file) != count)
     {
         perror("Error writing file");
@@ -27,7 +27,7 @@ int SaveFunction(addressType* addressTbl, itemType const* const itemTbl, unsigne
     }
 
     fclose(file);
-    printf("ƒf[ƒ^‚ª•Û‘¶‚³‚ê‚Ü‚µ‚½B\n");
+    printf(u8"ãƒ‡ãƒ¼ã‚¿ãŒä¿å­˜ã•ã‚Œã¾ã—ãŸã€‚\n");
     return 0;
 }
 
@@ -37,7 +37,7 @@ int LoadFunction(addressType* addressTbl, itemType const* const itemTbl, unsigne
     errno_t err;
     int frcon = 0;
 
-    // ƒtƒ@ƒCƒ‹‚ğƒoƒCƒiƒŠ“Ç‚İæ‚èƒ‚[ƒh‚ÅŠJ‚­
+    // ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ãƒã‚¤ãƒŠãƒªèª­ã¿å–ã‚Šãƒ¢ãƒ¼ãƒ‰ã§é–‹ã
     err = fopen_s(&file, "addressTbl.bin", "rb");
     if (err != 0 || file == NULL)
     {
@@ -45,13 +45,14 @@ int LoadFunction(addressType* addressTbl, itemType const* const itemTbl, unsigne
         return -1;
     }
 
-    // ƒf[ƒ^‚ğ“Ç‚İ‚Ş
+    // ãƒ‡ãƒ¼ã‚¿ã‚’èª­ã¿è¾¼ã‚€
     while (fread(&addressTbl[frcon], sizeof(addressType), 1, file) == 1)
     {
         frcon++;
     }
 
     fclose(file);
-    printf("ƒf[ƒ^‚ª“Ç‚İ‚Ü‚ê‚Ü‚µ‚½B\n");
+    printf(u8"ãƒ‡ãƒ¼ã‚¿ãŒèª­ã¿è¾¼ã¾ã‚Œã¾ã—ãŸã€‚\n");
     return frcon;
 }
+

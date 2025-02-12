@@ -8,11 +8,11 @@
 
 bool showHeader = true;
 
-// ƒƒjƒ…[•\¦ŠÖ”‚ÌÀ‘•
+// ãƒ¡ãƒ‹ãƒ¥ãƒ¼è¡¨ç¤ºé–¢æ•°ã®å®Ÿè£…
 void DisplayMenu(menuType* menus, unsigned int count) {
-    printf("ZŠ˜^ƒAƒvƒŠƒP[ƒVƒ‡ƒ“\n");
-    printf("ƒf[ƒ^Œ”(%d)\n", count);
-    printf("ƒRƒ}ƒ“ƒh‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢\n");
+    printf(u8"ä½æ‰€éŒ²ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³\n");
+    printf(u8"ãƒ‡ãƒ¼ã‚¿ä»¶æ•°(%d)\n", count);
+    printf(u8"ã‚³ãƒãƒ³ãƒ‰ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„\n");
     for (int i = 0; menus[i].name != NULL; i++) {
         printf("%d: %s ", menus[i].id, menus[i].name);
     }
@@ -48,7 +48,7 @@ unsigned int ViewFunction(addressType* addressTbl, itemType const* const itemTbl
         HeaderFunction(itemTbl);
     }
 
-    for (unsigned int j = 0; j < count; j++) { // ‚±‚±‚Å‘SŒƒ‹[ƒv
+    for (unsigned int j = 0; j < count; j++) { // ã“ã“ã§å…¨ä»¶ãƒ«ãƒ¼ãƒ—
         for (int wi = 0; wi < 16; wi++)
         {
             if (itemTbl[wi].pos < 0)
@@ -59,14 +59,14 @@ unsigned int ViewFunction(addressType* addressTbl, itemType const* const itemTbl
             {
                 if (itemTbl[wi].itype == TYPE_STRING)
                 {
-                    sprintf_s(fmt, sizeof(fmt), "%%-%ds ", itemTbl[wi].dispWith); // ƒ^ƒCƒgƒ‹—p‚Ì•‚ğŒˆ’è‚µ‚ÄƒAƒCƒeƒ€‚²‚Æ‚ÌƒtƒH[ƒ}ƒbƒg‚ğì¬
-                    charPtr = ((unsigned char*)(&addressTbl[j]) + itemTbl[wi].offset); // Œ^ƒLƒƒƒXƒg‚Æ•¶–@‚ğC³
+                    sprintf_s(fmt, sizeof(fmt), "%%-%ds ", itemTbl[wi].dispWith); // ã‚¿ã‚¤ãƒˆãƒ«ç”¨ã®å¹…ã‚’æ±ºå®šã—ã¦ã‚¢ã‚¤ãƒ†ãƒ ã”ã¨ã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚’ä½œæˆ
+                    charPtr = ((unsigned char*)(&addressTbl[j]) + itemTbl[wi].offset); // å‹ã‚­ãƒ£ã‚¹ãƒˆã¨æ–‡æ³•ã‚’ä¿®æ­£
                     printf(fmt, charPtr);
                 }
                 else if (itemTbl[wi].itype == TYPE_INT)
                 {
-                    sprintf_s(fmt, sizeof(fmt), "%%-%dd ", itemTbl[wi].dispWith); // ƒ^ƒCƒgƒ‹—p‚Ì•‚ğŒˆ’è‚µ‚ÄƒAƒCƒeƒ€‚²‚Æ‚ÌƒtƒH[ƒ}ƒbƒg‚ğì¬
-                    intPtr = (unsigned int*)((unsigned char*)(&addressTbl[j]) + itemTbl[wi].offset); // Œ^ƒLƒƒƒXƒg‚Æ•¶–@‚ğC³
+                    sprintf_s(fmt, sizeof(fmt), "%%-%dd ", itemTbl[wi].dispWith); // ã‚¿ã‚¤ãƒˆãƒ«ç”¨ã®å¹…ã‚’æ±ºå®šã—ã¦ã‚¢ã‚¤ãƒ†ãƒ ã”ã¨ã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚’ä½œæˆ
+                    intPtr = (unsigned int*)((unsigned char*)(&addressTbl[j]) + itemTbl[wi].offset); // å‹ã‚­ãƒ£ã‚¹ãƒˆã¨æ–‡æ³•ã‚’ä¿®æ­£
                     printf(fmt, *intPtr);
                 }
             }
@@ -77,12 +77,12 @@ unsigned int ViewFunction(addressType* addressTbl, itemType const* const itemTbl
 }
 
 unsigned int AddFunction(addressType* addressTbl, itemType const* const itemTbl, unsigned int count)
-{ // ZŠ˜^‚Éƒf[ƒ^‚ğ’Ç‰Á‚·‚éŠÖ”
+{ // ä½æ‰€éŒ²ã«ãƒ‡ãƒ¼ã‚¿ã‚’è¿½åŠ ã™ã‚‹é–¢æ•°
     int roopflag = 1;
     while (roopflag)
     {
         if (count >= 5) {
-            printf("‚±‚êˆÈã’Ç‰Á‚Å‚«‚Ü‚¹‚ñB\n");
+            printf(u8"ã“ã‚Œä»¥ä¸Šè¿½åŠ ã§ãã¾ã›ã‚“ã€‚\n");
             return count;
         }
         unsigned char fmtsmp[255] = { 0 };
@@ -100,7 +100,7 @@ unsigned int AddFunction(addressType* addressTbl, itemType const* const itemTbl,
                 if (itemTbl[i].itype == TYPE_STRING)
                 {
                     charPtr = ((unsigned char*)&addressTbl[count] + (unsigned long)itemTbl[i].offset);
-                    printf("%s‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢F", itemTbl[i].dispName);
+                    printf(u8"%sã‚’å…¥åŠ›ã—ã¦ãã ã•ã„ï¼š", itemTbl[i].dispName);
                     scanf("%s", fmtsmp);
                     sprintf(charPtr, "%s", fmtsmp);
                 }
@@ -111,23 +111,23 @@ unsigned int AddFunction(addressType* addressTbl, itemType const* const itemTbl,
                         *intPtr = count + 1;
                     }
                     else {
-                        printf("%s‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢F", itemTbl[i].dispName);
+                        printf(u8"%sã‚’å…¥åŠ›ã—ã¦ãã ã•ã„ï¼š", itemTbl[i].dispName);
                         scanf("%d", &intValue);
                         *intPtr = intValue;
                     }
                 }
             }
         }
-        printf("ƒf[ƒ^‚ª’Ç‰Á‚³‚ê‚Ü‚µ‚½B\n");
+        printf(u8"ãƒ‡ãƒ¼ã‚¿ãŒè¿½åŠ ã•ã‚Œã¾ã—ãŸã€‚\n");
         count++;
-        printf("’Ç‰Áì‹Æ‚ğ‘±‚¯‚Ü‚·‚©H 1:‘±s 0:I—¹\n");
+        printf(u8"è¿½åŠ ä½œæ¥­ã‚’ç¶šã‘ã¾ã™ã‹ï¼Ÿ 1:ç¶šè¡Œ 0:çµ‚äº†\n");
         scanf("%d", &roopflag);
     }
     return count;
 }
 
 unsigned int DeleteFunction(addressType* addressTbl, itemType const* const itemTbl, unsigned int count)
-{ // ZŠ˜^‚Ìƒf[ƒ^‚ğíœ‚·‚éŠÖ”
+{ // ä½æ‰€éŒ²ã®ãƒ‡ãƒ¼ã‚¿ã‚’å‰Šé™¤ã™ã‚‹é–¢æ•°
     int roopflag = 1;
     int target;
     int input;
@@ -137,8 +137,8 @@ unsigned int DeleteFunction(addressType* addressTbl, itemType const* const itemT
     bool deside;
     while (roopflag)
     {
-        printf("íœ‚µ‚½‚¢ƒf[ƒ^‚Ì”Ô†‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢F");
-        scanf("%d", &target); // íœ‚µ‚½‚¢ƒf[ƒ^”Ô†‚ğ“ü—Í‚³‚¹‚é
+        printf(u8"å‰Šé™¤ã—ãŸã„ãƒ‡ãƒ¼ã‚¿ã®ç•ªå·ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„ï¼š");
+        scanf("%d", &target); // å‰Šé™¤ã—ãŸã„ãƒ‡ãƒ¼ã‚¿ç•ªå·ã‚’å…¥åŠ›ã•ã›ã‚‹
 
         HeaderFunction(itemTbl);
 
@@ -152,27 +152,27 @@ unsigned int DeleteFunction(addressType* addressTbl, itemType const* const itemT
             {
                 if (itemTbl[wi].itype == TYPE_STRING)
                 {
-                    sprintf_s(fmt, sizeof(fmt), "%%-%ds ", itemTbl[wi].dispWith); // ƒ^ƒCƒgƒ‹—p‚Ì•‚ğŒˆ’è‚µ‚ÄƒAƒCƒeƒ€‚²‚Æ‚ÌƒtƒH[ƒ}ƒbƒg‚ğì¬
-                    charPtr = ((unsigned char*)&addressTbl[target] + itemTbl[wi].offset); // Œ^ƒLƒƒƒXƒg‚Æ•¶–@‚ğC³
+                    sprintf_s(fmt, sizeof(fmt), "%%-%ds ", itemTbl[wi].dispWith); // ã‚¿ã‚¤ãƒˆãƒ«ç”¨ã®å¹…ã‚’æ±ºå®šã—ã¦ã‚¢ã‚¤ãƒ†ãƒ ã”ã¨ã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚’ä½œæˆ
+                    charPtr = ((unsigned char*)&addressTbl[target] + itemTbl[wi].offset); // å‹ã‚­ãƒ£ã‚¹ãƒˆã¨æ–‡æ³•ã‚’ä¿®æ­£
                     printf(fmt, charPtr);
                 }
                 else if (itemTbl[wi].itype == TYPE_INT)
                 {
-                    sprintf_s(fmt, sizeof(fmt), "%%-%dd ", itemTbl[wi].dispWith); // ƒ^ƒCƒgƒ‹—p‚Ì•‚ğŒˆ’è‚µ‚ÄƒAƒCƒeƒ€‚²‚Æ‚ÌƒtƒH[ƒ}ƒbƒg‚ğì¬
-                    intPtr = (unsigned int*)((unsigned char*)&addressTbl[target] + itemTbl[wi].offset); // Œ^ƒLƒƒƒXƒg‚Æ•¶–@‚ğC³
+                    sprintf_s(fmt, sizeof(fmt), "%%-%dd ", itemTbl[wi].dispWith); // ã‚¿ã‚¤ãƒˆãƒ«ç”¨ã®å¹…ã‚’æ±ºå®šã—ã¦ã‚¢ã‚¤ãƒ†ãƒ ã”ã¨ã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚’ä½œæˆ
+                    intPtr = (unsigned int*)((unsigned char*)&addressTbl[target] + itemTbl[wi].offset); // å‹ã‚­ãƒ£ã‚¹ãƒˆã¨æ–‡æ³•ã‚’ä¿®æ­£
                     printf(fmt, *intPtr);
                 }
             }
         }
-        printf("‚±‚Ìƒf[ƒ^‚ğíœ‚µ‚Ü‚·‚©H 1:‚Í‚¢ 0:‚¢‚¢‚¦\n");
+        printf(u8"ã“ã®ãƒ‡ãƒ¼ã‚¿ã‚’å‰Šé™¤ã—ã¾ã™ã‹ï¼Ÿ 1:ã¯ã„ 0:ã„ã„ãˆ\n");
         scanf("%d", &input);
         deside = (input != 0);
         if (deside)
         {
             addressTbl[target] = addressTbl[target + 1];
             count--;
-            printf("íœ‚ªŠ®—¹‚µ‚Ü‚µ‚½B\n");
-            printf("íœì‹Æ‚ğ‘±‚¯‚Ü‚·‚©H 1:‘±s 0:I—¹\n");
+            printf(u8"å‰Šé™¤ãŒå®Œäº†ã—ã¾ã—ãŸã€‚\n");
+            printf(u8"å‰Šé™¤ä½œæ¥­ã‚’ç¶šã‘ã¾ã™ã‹ï¼Ÿ 1:ç¶šè¡Œ 0:çµ‚äº†\n");
             scanf("%d", &roopflag);
         }
     }
@@ -180,7 +180,7 @@ unsigned int DeleteFunction(addressType* addressTbl, itemType const* const itemT
 }
 
 unsigned int EditFunction(addressType* addressTbl, itemType const* const itemTbl, unsigned int count)
-{ // ZŠ˜^‚Ìƒf[ƒ^‚ğ•ÒW‚·‚éŠÖ”
+{ // ä½æ‰€éŒ²ã®ãƒ‡ãƒ¼ã‚¿ã‚’ç·¨é›†ã™ã‚‹é–¢æ•°
     int roopflag = 1;
     while (roopflag)
     {
@@ -191,8 +191,8 @@ unsigned int EditFunction(addressType* addressTbl, itemType const* const itemTbl
         unsigned char* charPtr;
         unsigned int* intPtr = 0;
         unsigned int intValue;
-        printf("•ÒW‚µ‚½‚¢ƒf[ƒ^‚Ì”Ô†‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢F");
-        scanf("%d", &target); // •ÒW‚µ‚½‚¢ƒf[ƒ^”Ô†‚ğ“ü—Í‚³‚¹‚é
+        printf(u8"ç·¨é›†ã—ãŸã„ãƒ‡ãƒ¼ã‚¿ã®ç•ªå·ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„ï¼š");
+        scanf("%d", &target); // ç·¨é›†ã—ãŸã„ãƒ‡ãƒ¼ã‚¿ç•ªå·ã‚’å…¥åŠ›ã•ã›ã‚‹
 
         HeaderFunction(itemTbl);
 
@@ -206,19 +206,19 @@ unsigned int EditFunction(addressType* addressTbl, itemType const* const itemTbl
             {
                 if (itemTbl[wi].itype == TYPE_STRING)
                 {
-                    sprintf_s(fmt, sizeof(fmt), "%%-%ds ", itemTbl[wi].dispWith); // ƒ^ƒCƒgƒ‹—p‚Ì•‚ğŒˆ’è‚µ‚ÄƒAƒCƒeƒ€‚²‚Æ‚ÌƒtƒH[ƒ}ƒbƒg‚ğì¬
-                    charPtr = ((unsigned char*)&addressTbl[target] + itemTbl[wi].offset); // Œ^ƒLƒƒƒXƒg‚Æ•¶–@‚ğC³
+                    sprintf_s(fmt, sizeof(fmt), "%%-%ds ", itemTbl[wi].dispWith); // ã‚¿ã‚¤ãƒˆãƒ«ç”¨ã®å¹…ã‚’æ±ºå®šã—ã¦ã‚¢ã‚¤ãƒ†ãƒ ã”ã¨ã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚’ä½œæˆ
+                    charPtr = ((unsigned char*)&addressTbl[target] + itemTbl[wi].offset); // å‹ã‚­ãƒ£ã‚¹ãƒˆã¨æ–‡æ³•ã‚’ä¿®æ­£
                     printf(fmt, charPtr);
                 }
                 else if (itemTbl[wi].itype == TYPE_INT)
                 {
-                    sprintf_s(fmt, sizeof(fmt), "%%-%dd ", itemTbl[wi].dispWith); // ƒ^ƒCƒgƒ‹—p‚Ì•‚ğŒˆ’è‚µ‚ÄƒAƒCƒeƒ€‚²‚Æ‚ÌƒtƒH[ƒ}ƒbƒg‚ğì¬
-                    intPtr = (unsigned int*)((unsigned char*)&addressTbl[target] + itemTbl[wi].offset); // Œ^ƒLƒƒƒXƒg‚Æ•¶–@‚ğC³
+                    sprintf_s(fmt, sizeof(fmt), "%%-%dd ", itemTbl[wi].dispWith); // ã‚¿ã‚¤ãƒˆãƒ«ç”¨ã®å¹…ã‚’æ±ºå®šã—ã¦ã‚¢ã‚¤ãƒ†ãƒ ã”ã¨ã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚’ä½œæˆ
+                    intPtr = (unsigned int*)((unsigned char*)&addressTbl[target] + itemTbl[wi].offset); // å‹ã‚­ãƒ£ã‚¹ãƒˆã¨æ–‡æ³•ã‚’ä¿®æ­£
                     printf(fmt, *intPtr);
                 }
             }
         }
-        printf("\n•ÒW‚µ‚½‚¢€–Ú‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢\n"); // •ÒW‚µ‚½‚¢€–Ú”Ô†‚ğ“ü—Í‚³‚¹‚é
+        printf(u8"\nç·¨é›†ã—ãŸã„é …ç›®ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„\n"); // ç·¨é›†ã—ãŸã„é …ç›®ç•ªå·ã‚’å…¥åŠ›ã•ã›ã‚‹
         for (int wj = 0; wj < 16; wj++)
         {
             if (itemTbl[wj].pos < 0)
@@ -232,18 +232,18 @@ unsigned int EditFunction(addressType* addressTbl, itemType const* const itemTbl
         }
         printf("\n");
         scanf("%d", &title);
-        title -= 1; // itemTbl‚Ì“Y‚¦š‚É‡‚¤‚æ‚¤‚É‚·‚é itemTbl[0].pos@= 1 ->title "©", itemTbl[title].dispName->"–¼"‚Æ‚È‚èƒYƒŒ‚Ä‚µ‚Ü‚¤‚Ì‚Å
+        title -= 1; // itemTblã®æ·»ãˆå­—ã«åˆã†ã‚ˆã†ã«ã™ã‚‹ itemTbl[0].posã€€= 1 ->title "å§“", itemTbl[title].dispName->"å"ã¨ãªã‚Šã‚ºãƒ¬ã¦ã—ã¾ã†ã®ã§
         if (itemTbl[target].itype == TYPE_STRING)
         {
             charPtr = ((unsigned char*)&addressTbl[target] + (unsigned long)itemTbl[title].offset);
-            printf("%s‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢F", itemTbl[title].dispName);
+            printf(u8"%sã‚’å…¥åŠ›ã—ã¦ãã ã•ã„ï¼š", itemTbl[title].dispName);
             scanf("%s", fmtsmp);
             sprintf(charPtr, "%s", fmtsmp);
         }
         else if (itemTbl[target].itype == TYPE_INT)
         {
             intPtr = (unsigned int*)((unsigned char*)&addressTbl[target] + itemTbl[title].offset);
-            printf("%s‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢F", itemTbl[title].dispName);
+            printf(u8"%sã‚’å…¥åŠ›ã—ã¦ãã ã•ã„ï¼š", itemTbl[title].dispName);
             scanf("%d", &intValue);
             *intPtr = intValue;
         }
@@ -252,8 +252,8 @@ unsigned int EditFunction(addressType* addressTbl, itemType const* const itemTbl
 
         if (title != 0)
         {
-            printf("ƒf[ƒ^‚ªXV‚³‚ê‚Ü‚µ‚½B\n");
-            printf("•ÒW‚ğ‘±‚¯‚Ü‚·‚©H 1:‘±s 0:I—¹\n");
+            printf(u8"ãƒ‡ãƒ¼ã‚¿ãŒæ›´æ–°ã•ã‚Œã¾ã—ãŸã€‚\n");
+            printf(u8"ç·¨é›†ã‚’ç¶šã‘ã¾ã™ã‹ï¼Ÿ 1:ç¶šè¡Œ 0:çµ‚äº†\n");
             scanf("%d", &roopflag);
         }
     }
@@ -268,8 +268,8 @@ unsigned int SearchFunction(addressType* addressTbl, itemType const* const itemT
         int fieldIndex = -1;
         char searchString[256];
 
-        // ŒŸõ‚·‚éƒtƒB[ƒ‹ƒh‚ğ‘I‘ğ
-        printf("ŒŸõ‚·‚éƒtƒB[ƒ‹ƒh‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢:\n");
+        // æ¤œç´¢ã™ã‚‹ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’é¸æŠ
+        printf(u8"æ¤œç´¢ã™ã‚‹ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’é¸æŠã—ã¦ãã ã•ã„:\n");
         for (int i = 0; i < 16; i++) {
             if (itemTbl[i].pos < 0) {
                 break;
@@ -277,21 +277,21 @@ unsigned int SearchFunction(addressType* addressTbl, itemType const* const itemT
             printf("%d: %s\n", itemTbl[i].pos, itemTbl[i].dispName);
         }
         scanf("%d", &fieldIndex);
-        fieldIndex -= 1; // itemTbl‚ÌƒCƒ“ƒfƒbƒNƒX‚É‡‚í‚¹‚é
+        fieldIndex -= 1; // itemTblã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã«åˆã‚ã›ã‚‹
 
         if (fieldIndex < 0 || fieldIndex >= 16 || itemTbl[fieldIndex].pos < 0) {
-            printf("–³Œø‚ÈƒtƒB[ƒ‹ƒh‘I‘ğ‚Å‚·B\n");
+            printf(u8"ç„¡åŠ¹ãªãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰é¸æŠã§ã™ã€‚\n");
             return count;
         }
 
-        // ŒŸõ•¶š—ñ‚ğ“ü—Í
-        printf("%s‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢F", itemTbl[fieldIndex].dispName);
+        // æ¤œç´¢æ–‡å­—åˆ—ã‚’å…¥åŠ›
+        printf(u8"%sã‚’å…¥åŠ›ã—ã¦ãã ã•ã„ï¼š", itemTbl[fieldIndex].dispName);
         scanf("%s", searchString);
 
-        // ŒŸõ‚µ‚Äˆê’v‚·‚éƒf[ƒ^‚ğ•\¦
-        printf("ŒŸõŒ‹‰Ê:\n");
+        // æ¤œç´¢ã—ã¦ä¸€è‡´ã™ã‚‹ãƒ‡ãƒ¼ã‚¿ã‚’è¡¨ç¤º
+        printf(u8"æ¤œç´¢çµæœ:\n");
         HeaderFunction(itemTbl);
-        showHeader = false; // ƒwƒbƒ_[‚ğ•\¦‚µ‚È‚¢‚æ‚¤‚Éİ’è
+        showHeader = false; // ãƒ˜ãƒƒãƒ€ãƒ¼ã‚’è¡¨ç¤ºã—ãªã„ã‚ˆã†ã«è¨­å®š
         for (unsigned int i = 0; i < count; i++) {
             unsigned char* charPtr = ((unsigned char*)&addressTbl[i] + itemTbl[fieldIndex].offset);
             if (itemTbl[fieldIndex].itype == TYPE_STRING) {
@@ -307,18 +307,18 @@ unsigned int SearchFunction(addressType* addressTbl, itemType const* const itemT
             }
         }
 
-        printf("ŒŸõ‚ğ‘±‚¯‚Ü‚·‚©H 1:‘±s 0:I—¹\n");
+        printf(u8"æ¤œç´¢ã‚’ç¶šã‘ã¾ã™ã‹ï¼Ÿ 1:ç¶šè¡Œ 0:çµ‚äº†\n");
         scanf("%d", &roopflag);
     }
-    showHeader = true; // ƒwƒbƒ_[‚ğ•\¦‚µ‚È‚¢‚æ‚¤‚Éİ’è
+    showHeader = true; // ãƒ˜ãƒƒãƒ€ãƒ¼ã‚’è¡¨ç¤ºã—ãªã„ã‚ˆã†ã«è¨­å®š
     return count;
 }
 
 unsigned int SortFunction(addressType* addressTbl, itemType const* const itemTbl, unsigned int count) {
     int fieldIndex = -1;
 
-    // ƒ\[ƒg‚·‚éƒtƒB[ƒ‹ƒh‚ğ‘I‘ğ
-    printf("ƒ\[ƒg‚·‚éƒtƒB[ƒ‹ƒh‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢:\n");
+    // ã‚½ãƒ¼ãƒˆã™ã‚‹ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’é¸æŠ
+    printf(u8"ã‚½ãƒ¼ãƒˆã™ã‚‹ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’é¸æŠã—ã¦ãã ã•ã„:\n");
     for (int i = 0; i < 16; i++) {
         if (itemTbl[i].pos < 0) {
             break;
@@ -326,14 +326,14 @@ unsigned int SortFunction(addressType* addressTbl, itemType const* const itemTbl
         printf("%d: %s\n", itemTbl[i].pos, itemTbl[i].dispName);
     }
     scanf("%d", &fieldIndex);
-    fieldIndex -= 1; // itemTbl‚ÌƒCƒ“ƒfƒbƒNƒX‚É‡‚í‚¹‚é
+    fieldIndex -= 1; // itemTblã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã«åˆã‚ã›ã‚‹
 
     if (fieldIndex < 0 || fieldIndex >= 16 || itemTbl[fieldIndex].pos < 0) {
-        printf("–³Œø‚ÈƒtƒB[ƒ‹ƒh‘I‘ğ‚Å‚·B\n");
+        printf(u8"ç„¡åŠ¹ãªãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰é¸æŠã§ã™ã€‚\n");
         return count;
     }
 
-    // ƒoƒuƒ‹ƒ\[ƒg‚ğg—p‚µ‚Äƒ\[ƒg‚ğÀs
+    // ãƒãƒ–ãƒ«ã‚½ãƒ¼ãƒˆã‚’ä½¿ç”¨ã—ã¦ã‚½ãƒ¼ãƒˆã‚’å®Ÿè¡Œ
     for (unsigned int i = 0; i < count - 1; i++) {
         for (unsigned int j = 0; j < count - i - 1; j++) {
             unsigned char* charPtr1 = ((unsigned char*)&addressTbl[j] + itemTbl[fieldIndex].offset);
@@ -361,6 +361,7 @@ unsigned int SortFunction(addressType* addressTbl, itemType const* const itemTbl
         }
     }
 
-    printf("ƒ\[ƒg‚ªŠ®—¹‚µ‚Ü‚µ‚½B\n");
+    printf(u8"ã‚½ãƒ¼ãƒˆãŒå®Œäº†ã—ã¾ã—ãŸã€‚\n");
     return count;
 }
+

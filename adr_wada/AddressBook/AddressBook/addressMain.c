@@ -1,155 +1,157 @@
 #include <stdio.h>
 #include <stddef.h>
+#include <Windows.h>
 
 #include "addressType.h"
 #include "addressProto.h"
 
 int main(void)
 {
+    SetConsoleOutputCP(CP_UTF8);
 #define DMYaddressTbl
 #ifndef DMYaddressTbl
-	addressType addressTbl[];
+    addressType addressTbl[];
 #else
-	addressType addressTbl[10] = {
-		{1,
-		 "first",
-		 "second",
-		 "postNum",
-		 "address",
-		 "address2",
-		 "email",
-		 "tel1",
-		 "tel2",
-		 25,
-		 "male"},
-		{2,
-		 "2first",
-		 "2second",
-		 "2postNum",
-		 "2address",
-		 "2address2",
-		 "2email",
-		 "2tel1",
-		 "2tel2",
-		 25,
-		 "2male"},
-		{3,
-		 "3first",
-		 "3second",
-		 "3postNum",
-		 "3address",
-		 "3address2",
-		 "3email",
-		 "3tel1",
-		 "32tel2",
-		 25,
-		 "3male"},
-		{4,
-		 "4first",
-		 "4second",
-		 "4postNum",
-		 "4address",
-		 "4address2",
-		 "4email",
-		 "4tel1",
-		 "4tel2",
-		 25,
-		 "4male"},
-		{5,
-		 "5first",
-		 "5second",
-		 "5postNum",
-		 "5address",
-		 "5address2",
-		 "5email",
-		 "5tel1",
-		 "5tel2",
-		 25,
-		 "5male"}
-	};
+    addressType addressTbl[10] = {
+        {1,
+         "first",
+         "second",
+         "postNum",
+         "address",
+         "address2",
+         "email",
+         "tel1",
+         "tel2",
+         25,
+         "male"},
+        {2,
+         "2first",
+         "2second",
+         "2postNum",
+         "2address",
+         "2address2",
+         "2email",
+         "2tel1",
+         "2tel2",
+         25,
+         "2male"},
+        {3,
+         "3first",
+         "3second",
+         "3postNum",
+         "3address",
+         "3address2",
+         "3email",
+         "3tel1",
+         "32tel2",
+         25,
+         "3male"},
+        {4,
+         "4first",
+         "4second",
+         "4postNum",
+         "4address",
+         "4address2",
+         "4email",
+         "4tel1",
+         "4tel2",
+         25,
+         "4male"},
+        {5,
+         "5first",
+         "5second",
+         "5postNum",
+         "5address",
+         "5address2",
+         "5email",
+         "5tel1",
+         "5tel2",
+         25,
+         "5male"}
+    };
 #endif
-	itemType const items[] = {
-		{1, "ID", 5, TYPE_INT, offsetof(addressType, id)},
-		{2, "©", 10, TYPE_STRING, offsetof(addressType, first)},
-		{3, "–¼", 10, TYPE_STRING, offsetof(addressType, second)},
-		{4, "—X•Ö”Ô†", 10, TYPE_STRING, offsetof(addressType, postNum)},
-		{5, "ZŠ1", 15, TYPE_STRING, offsetof(addressType, address1)},
-		{6, "ZŠ2", 15, TYPE_STRING, offsetof(addressType, address2)},
-		{7, "mail", 10, TYPE_STRING, offsetof(addressType, email)},
-		{8, "TEL1", 10, TYPE_STRING, offsetof(addressType, tel1)},
-		{9, "TEL2", 10, TYPE_STRING, offsetof(addressType, tel2)},
-		{10, "AGE", 5, TYPE_INT, offsetof(addressType, age)},
-		{11, "GENDER", 10, TYPE_STRING, offsetof(addressType, gender)},
-		{
-			-1,
-		},
-	};
+    itemType const items[] = {
+        {1, "ID", 5, TYPE_INT, offsetof(addressType, id)},
+        {2, u8"å§“", 10, TYPE_STRING, offsetof(addressType, first)},
+        {3, u8"å", 10, TYPE_STRING, offsetof(addressType, second)},
+        {4, u8"éƒµä¾¿ç•ªå·", 10, TYPE_STRING, offsetof(addressType, postNum)},
+        {5, u8"ä½æ‰€1", 15, TYPE_STRING, offsetof(addressType, address1)},
+        {6, u8"ä½æ‰€2", 15, TYPE_STRING, offsetof(addressType, address2)},
+        {7, "mail", 10, TYPE_STRING, offsetof(addressType, email)},
+        {8, "TEL1", 10, TYPE_STRING, offsetof(addressType, tel1)},
+        {9, "TEL2", 10, TYPE_STRING, offsetof(addressType, tel2)},
+        {10, "AGE", 5, TYPE_INT, offsetof(addressType, age)},
+        {11, "GENDER", 10, TYPE_STRING, offsetof(addressType, gender)},
+        {
+            -1,
+        },
+    };
 
-	menuType menus[] = {
-		{0, "ƒf[ƒ^‚ğ•\¦", ViewFunction},
-		{1, "’Ç‰Á", AddFunction},
-		{2, "íœ", DeleteFunction},
-		{3, "•ÒW", EditFunction},
-		{4, "ŒŸõ", SearchFunction},
-		{5, "ƒ\[ƒg", SortFunction},
-		{6, "ƒtƒ@ƒCƒ‹•Û‘¶", SaveFunction},
-		{7, "ƒtƒ@ƒCƒ‹“Ç‚İ‚İ", LoadFunction},
-		{9, "I—¹", NULL},
-		{ -1, NULL, NULL } // I’[‚ğ¦‚·
-	};
+    menuType menus[] = {
+        {0, u8"ãƒ‡ãƒ¼ã‚¿ã‚’è¡¨ç¤º", ViewFunction},
+        {1, u8"è¿½åŠ ", AddFunction},
+        {2, u8"å‰Šé™¤", DeleteFunction},
+        {3, u8"ç·¨é›†", EditFunction},
+        {4, u8"æ¤œç´¢", SearchFunction},
+        {5, u8"ã‚½ãƒ¼ãƒˆ", SortFunction},
+        {6, u8"ãƒ•ã‚¡ã‚¤ãƒ«ä¿å­˜", SaveFunction},
+        {7, u8"ãƒ•ã‚¡ã‚¤ãƒ«èª­ã¿è¾¼ã¿", LoadFunction},
+        {9, u8"çµ‚äº†", NULL},
+        { -1, NULL, NULL } // çµ‚ç«¯ã‚’ç¤ºã™
+    };
 
-	int count = 5;
-	int roopflag = 1;
-	while (roopflag)
-	{
-		unsigned int cmd;
-		if (count == 0)
-		{
-			printf("ZŠ˜^ƒAƒvƒŠƒP[ƒVƒ‡ƒ“\n");
-			printf("ƒf[ƒ^Œ”(%d)", count);
-			printf("ƒRƒ}ƒ“ƒh‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢\n");
-			printf("1F’Ç‰Á 2:ƒtƒ@ƒCƒ‹“Ç@9FI—¹\n");
+    int count = 5;
+    int roopflag = 1;
+    while (roopflag)
+    {
+        unsigned int cmd;
+        if (count == 0)
+        {
+            printf(u8"ä½æ‰€éŒ²ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³\n");
+            printf(u8"ãƒ‡ãƒ¼ã‚¿ä»¶æ•°(%d)", count);
+            printf(u8"ã‚³ãƒãƒ³ãƒ‰ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„\n");
+            printf(u8"1ï¼šè¿½åŠ  2:ãƒ•ã‚¡ã‚¤ãƒ«èª­è¾¼ã€€9ï¼šçµ‚äº†\n");
 
-			scanf("%d", &cmd);
+            scanf("%d", &cmd);
 
-			switch (cmd)
-			{
-			case 1:
-				count = AddFunction(addressTbl, items, count);
-				break;
-			case 2:
-				count = LoadFunction(addressTbl, items, count);
-				break;
-			case 9:
-				roopflag = 0;
-				break;
-			default:
-				break;
-			}
-		}
-		else
-		{
-			DisplayMenu(menus, count);
+            switch (cmd)
+            {
+            case 1:
+                count = AddFunction(addressTbl, items, count);
+                break;
+            case 2:
+                count = LoadFunction(addressTbl, items, count);
+                break;
+            case 9:
+                roopflag = 0;
+                break;
+            default:
+                break;
+            }
+        }
+        else
+        {
+            DisplayMenu(menus, count);
 
-			scanf("%d", &cmd);
+            scanf("%d", &cmd);
 
-			if (cmd == 9) {
-				roopflag = 0;
-			}
-			else {
-				for (int i = 0; i < sizeof(menus) / sizeof(menuType); i++) {
-					if (menus[i].id == cmd) {
-						if (menus[i].func != NULL) {
-							count = menus[i].func(addressTbl, items, count);
-						}
-						break;
-					}
-				}
-			}
-		}
-	}
+            if (cmd == 9) {
+                roopflag = 0;
+            }
+            else {
+                for (int i = 0; i < sizeof(menus) / sizeof(menuType); i++) {
+                    if (menus[i].id == cmd) {
+                        if (menus[i].func != NULL) {
+                            count = menus[i].func(addressTbl, items, count);
+                        }
+                        break;
+                    }
+                }
+            }
+        }
+    }
 
-	// ‚±‚±‚É‘¼‚Ìˆ—‚ğ’Ç‰Á
+    // ã“ã“ã«ä»–ã®å‡¦ç†ã‚’è¿½åŠ 
 
-	return 0;
+    return 0;
 }

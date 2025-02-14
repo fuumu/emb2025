@@ -14,7 +14,12 @@ void DisplayMenu(menuType* menus, unsigned int count) {
     printf(u8"データ件数(%d)\n", count);
     printf(u8"コマンドを入力してください\n");
     for (int i = 0; menus[i].name != NULL; i++) {
-        printf("%d: %s ", menus[i].id, menus[i].name);
+        if (count > 0) {
+            printf("%d: %s ", menus[i].id, menus[i].name);
+        }
+        else if(menus[i].always == 1) {
+            printf("%d: %s ", menus[i].id, menus[i].name);
+        }
     }
     printf("\n");
 }

@@ -30,6 +30,7 @@ typedef struct item_t
  //menuType\‘¢‘Ì‚Ì’è‹`‚Æmenus”z—ñ‚Ìİ’è
 typedef struct {
     int id;
+    int always;
     const char* name;
     unsigned int (*func)(addressType*, itemType const*, unsigned int);
 } menuType;

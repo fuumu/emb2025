@@ -4,6 +4,7 @@
 
 //unsigned int generateUniqueId(addressType* addressTbl, unsigned int count); // ZŠ˜^‚ÌID‚ğ¶¬‚·‚éŠÖ”
 void DisplayMenu(menuType* menus, unsigned int count);
+void ViewOneData(addressType* addressTbl, itemType const* const itemTbl, int target);
 unsigned int HeaderFunction(itemType const* const itemTbl); // ZŠ˜^‚Ìƒwƒbƒ_[‚ğ•\¦‚·‚éŠÖ”
 unsigned int ViewFunction(addressType* addressTbl, itemType const* const itemTbl, unsigned int count);                       // ZŠ˜^“à‚Ì‘S‚Ä‚Ìƒf[ƒ^‚ğ•\¦‚·‚éŠÖ”
 unsigned int AddFunction(addressType* addressTbl, itemType const* const itemTbl, unsigned int count);    // ZŠ˜^‚Éƒf[ƒ^‚ğ’Ç‰Á‚·‚éŠÖ”

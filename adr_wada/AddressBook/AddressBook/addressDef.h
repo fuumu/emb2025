@@ -1,6 +1,7 @@
 #ifndef address_DEF
 #define address_DEF
 
+#define titleValue 16
 #define smallValue 16
 #define middleValue 32
 #define largeValue 64

@@ -43,7 +43,7 @@ int main(void)
 		 "3address2",
 		 "3email",
 		 "3tel1",
-		 "32tel2",
+		 "3tel2",
 		 25,
 		 "3male"},
 		{4,
@@ -150,8 +150,6 @@ int main(void)
 			}
 		}
 	}
-
-	// ここに他の処理を追加
 
 	return 0;
 }

@@ -28,7 +28,7 @@ void DisplayMenu(menuType* menus, unsigned int count) {
 unsigned int HeaderFunction(itemType const* const itemTbl)
 {
 	unsigned char fmt[32];
-	for (int i = 0; i < titleValue; i++)
+	for (int i = 0; i < TITLEVALUE; i++)
 	{
 		if (itemTbl[i].pos < 0)
 		{
@@ -48,9 +48,9 @@ unsigned int HeaderFunction(itemType const* const itemTbl)
 void ViewOneData(addressType* addressTbl, itemType const* const itemTbl ,int target) {
 	unsigned char fmt[32];
 	unsigned char* charPtr;
-	unsigned int* intPtr;
+	unsigned int* intPtr = NULL;
 
-	for (int wi = 0; wi < titleValue; wi++)
+	for (int wi = 0; wi < TITLEVALUE; wi++)
 	{
 		if (itemTbl[wi].pos < 0)
 		{
@@ -79,7 +79,7 @@ unsigned int ViewFunction(addressType* addressTbl, itemType const* const itemTbl
 {
 	unsigned char fmt[32];
 	unsigned char* charPtr;
-	unsigned int* intPtr;
+	unsigned int* intPtr = NULL;
 
 	if (showHeader) {
 		HeaderFunction(itemTbl);
@@ -105,8 +105,8 @@ unsigned int AddFunction(addressType* addressTbl, itemType const* const itemTbl,
 		unsigned char fmtsmp[255];
 		unsigned char* charPtr;
 		unsigned int intValue;
-		unsigned int* intPtr;
-		for (int i = 0; i < titleValue; i++)
+		unsigned int* intPtr = NULL;
+		for (int i = 0; i < TITLEVALUE; i++)
 		{
 			if (itemTbl[i].pos < 0)
 			{
@@ -151,7 +151,7 @@ unsigned int DeleteFunction(addressType* addressTbl, itemType const* const itemT
 	int input;
 	unsigned char fmt[32];
 	unsigned char* charPtr;
-	unsigned int* intPtr;
+	unsigned int* intPtr = NULL;
 	bool deside;
 	while (roopflag)
 	{
@@ -192,7 +192,7 @@ unsigned int EditFunction(addressType* addressTbl, itemType const* const itemTbl
 		unsigned char fmt[32];
 		unsigned char fmtsmp[255];
 		unsigned char* charPtr;
-		unsigned int* intPtr;
+		unsigned int* intPtr = NULL;
 		unsigned int intValue;
 		printf(u8"編集したいデータの番号を入力してください：");
 		scanf("%d", &target); // 編集したいデータ番号を入力させる
@@ -203,7 +203,7 @@ unsigned int EditFunction(addressType* addressTbl, itemType const* const itemTbl
 
 
 		printf(u8"\n編集したい項目を入力してください\n"); // 編集したい項目番号を入力させる
-		for (int wj = 0; wj < titleValue; wj++)
+		for (int wj = 0; wj < TITLEVALUE; wj++)
 		{
 			if (itemTbl[wj].pos < 0)
 			{
@@ -255,7 +255,7 @@ unsigned int SearchFunction(addressType* addressTbl, itemType const* const itemT
 
 		// 検索するフィールドを選択
 		printf(u8"検索するフィールドを選択してください:\n");
-		for (int i = 0; i < titleValue; i++) {
+		for (int i = 0; i < TITLEVALUE; i++) {
 			if (itemTbl[i].pos < 0) {
 				break;
 			}
@@ -264,7 +264,7 @@ unsigned int SearchFunction(addressType* addressTbl, itemType const* const itemT
 		scanf("%d", &fieldIndex);
 		fieldIndex--; // itemTblのインデックスに合わせる
 
-		if (fieldIndex < 0 || fieldIndex >= titleValue || itemTbl[fieldIndex].pos < 0) {
+		if (fieldIndex < 0 || fieldIndex >= TITLEVALUE || itemTbl[fieldIndex].pos < 0) {
 			printf(u8"無効なフィールド選択です。\n");
 			return count;
 		}
@@ -305,7 +305,7 @@ unsigned int SortFunction(addressType* addressTbl, itemType const* const itemTbl
 
 	// ソートするフィールドを選択
 	printf(u8"ソートするフィールドを選択してください:\n");
-	for (int i = 0; i < titleValue; i++) {
+	for (int i = 0; i < TITLEVALUE; i++) {
 		if (itemTbl[i].pos < 0) {
 			break;
 		}
@@ -314,7 +314,7 @@ unsigned int SortFunction(addressType* addressTbl, itemType const* const itemTbl
 	scanf("%d", &fieldIndex);
 	fieldIndex -= 1; // itemTblのインデックスに合わせる
 
-	if (fieldIndex < 0 || fieldIndex >= titleValue || itemTbl[fieldIndex].pos < 0) {
+	if (fieldIndex < 0 || fieldIndex >= TITLEVALUE || itemTbl[fieldIndex].pos < 0) {
 		printf(u8"無効なフィールド選択です。\n");
 		return count;
 	}

@@ -1,10 +1,10 @@
 #ifndef address_DEF
 #define address_DEF
 
-#define titleValue 16
-#define smallValue 16
-#define middleValue 32
-#define largeValue 64
+#define TITLEVALUE 16
+#define SMALLVALUE 16
+#define MIDDLEVALUE 32
+#define LARGEVALUE 64
 
 typedef enum item_type
 {

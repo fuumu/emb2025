@@ -8,8 +8,8 @@
 int main(void)
 {
 	SetConsoleOutputCP(CP_UTF8);
-#define DMYaddressTbl
-#ifndef DMYaddressTbl
+#define TITLE
+#ifndef TITLE
 	addressType addressTbl[];
 #else
 	addressType addressTbl[10] = {

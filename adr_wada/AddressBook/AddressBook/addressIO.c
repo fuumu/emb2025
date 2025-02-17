@@ -5,6 +5,7 @@
 #include "addressProto.h"
 #include "addressType.h"
 
+/*データを保存する関数*/
 int SaveFunction(addressType* addressTbl, itemType const* const itemTbl, unsigned int count)
 {
     FILE* file;
@@ -31,6 +32,7 @@ int SaveFunction(addressType* addressTbl, itemType const* const itemTbl, unsigne
     return 0;
 }
 
+/*データをロードする関数*/
 int LoadFunction(addressType* addressTbl, itemType const* const itemTbl, unsigned int count)
 {
     FILE* file;

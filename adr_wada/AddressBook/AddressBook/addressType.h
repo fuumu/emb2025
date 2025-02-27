@@ -5,17 +5,17 @@
 
 typedef struct address_t
 {
-    unsigned int  id;       // 登録番号
-    unsigned char first[middleValue];   // 姓
-    unsigned char second[middleValue];  // addressTbl
-    unsigned char postNum[smallValue];  // 郵便番号
-    unsigned char address1[largeValue]; // 住所1（都道府県・市区町村）
-    unsigned char address2[largeValue]; // 住所2（町addressTbl・番地）
-    unsigned char email[largeValue];    // メールアドレス
-    unsigned char tel1[middleValue];    // 電話番号（自宅）
-    unsigned char tel2[middleValue];    // 電話番号（会社）
+    unsigned int  id[SMALLVALUE];       // 登録番号
+    unsigned char first[MIDDLEVALUE];   // 姓
+    unsigned char second[MIDDLEVALUE];  // addressTbl
+    unsigned char postNum[SMALLVALUE];  // 郵便番号
+    unsigned char address1[LARGEVALUE]; // 住所1（都道府県・市区町村）
+    unsigned char address2[LARGEVALUE]; // 住所2（町addressTbl・番地）
+    unsigned char email[LARGEVALUE];    // メールアドレス
+    unsigned char tel1[MIDDLEVALUE];    // 電話番号（自宅）
+    unsigned char tel2[MIDDLEVALUE];    // 電話番号（会社）
     unsigned int age;                   // 年齢
-    unsigned char gender[smallValue];   // 男性/女性
+    unsigned char gender[SMALLVALUE];   // 男性/女性
 } addressType;
 
 typedef struct item_t

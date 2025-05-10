@@ -1,33 +1,20 @@
 #ifndef ADRESS_DEF
 #define ADRESS_DEF
 
+/*
+ * システム定数定義
+ */
+#define MAXTBL      64    // テーブルの最大サイズ
+#define MAXADRESS   256   // アドレスの最大長
+#define MAXNAME     64    // 名前の最大長
+#define SCHAR       64    // 文字列の基本サイズ
 
-//#define	MAXTBL	64		// max table size
-//#define MAXADRESS 255
-//#define MAXNAME	30
-//#define SCHAR	8
-
-
-
-
-
-
-
-
-
-
-
-
-#define	MAXTBL	64		// max table size
-#define MAXADRESS 256
-#define MAXNAME	64
-#define SCHAR	64
-
-
-typedef enum item_type { 
-	TYPE_STRING = 0, 
-	TYPE_INT 
+/*
+ * データ型定義
+ */
+typedef enum item_type {
+    TYPE_STRING = 0,      // 文字列型
+    TYPE_INT             // 整数型
 } item_type;
 
-
-#endif // !ADRESS_DEF
+#endif // ADRESS_DEF
